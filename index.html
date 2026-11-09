@@ -397,58 +397,9 @@
         font-weight: 700;
         color: var(--deep-green);
         line-height: 1.45;
-        margin-bottom: 26px;
+        margin-bottom: 0;
         letter-spacing: -0.02em;
         word-break: keep-all;
-      }
-
-      .platform-desc-group {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      .platform-desc {
-        font-size: 15px;
-        font-weight: 400;
-        color: var(--text-body);
-        line-height: 1.7;
-        letter-spacing: -0.01em;
-        word-break: keep-all;
-      }
-
-      .hero-cta-row {
-        margin-top: 32px;
-        display: flex;
-        gap: 10px;
-      }
-
-      .hero-cta-btn {
-        flex: 1;
-        text-align: center;
-        padding: 13px 16px;
-        font-size: 13px;
-        font-weight: 600;
-        border-radius: 3px;
-        transition: all 0.2s ease;
-      }
-
-      .hero-cta-btn.primary {
-        background-color: var(--deep-green);
-        color: var(--gold-light);
-      }
-
-      .hero-cta-btn.primary:hover {
-        background-color: var(--deep-green-soft);
-      }
-
-      .hero-cta-btn.secondary {
-        border: 1px solid var(--deep-green);
-        color: var(--deep-green);
-      }
-
-      .hero-cta-btn.secondary:hover {
-        background-color: rgba(18, 40, 32, 0.06);
       }
 
       .platform-right {
@@ -651,50 +602,8 @@
         font-weight: 700;
         color: var(--deep-green);
         line-height: 1.5;
-        margin-bottom: 24px;
-        word-break: keep-all;
-      }
-
-      .platform-desc-group {
-        order: 4;
-        padding: 0 24px 0 40px;
         margin-bottom: 28px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      .platform-desc {
-        font-size: 14px;
-        color: var(--text-body);
-        line-height: 1.72;
         word-break: keep-all;
-      }
-
-      .hero-cta-row {
-        order: 5;
-        padding: 0 24px 36px;
-        display: flex;
-        gap: 10px;
-      }
-
-      .hero-cta-btn {
-        flex: 1;
-        text-align: center;
-        padding: 12px 10px;
-        font-size: 13px;
-        font-weight: 600;
-        border-radius: 3px;
-      }
-
-      .hero-cta-btn.primary {
-        background-color: var(--deep-green);
-        color: var(--gold-light);
-      }
-
-      .hero-cta-btn.secondary {
-        border: 1px solid var(--deep-green);
-        color: var(--deep-green);
       }
 
       .platform-right {
@@ -789,15 +698,7 @@
         line-height: 1.45;
         font-weight: 600;
         color: var(--charcoal);
-        margin-bottom: 24px;
-        word-break: keep-all;
-      }
-
-      .uh-desc-1 {
-        font-size: 15px;
-        line-height: 1.8;
-        color: var(--text-body);
-        max-width: 760px;
+        margin-bottom: 0;
         word-break: keep-all;
       }
 
@@ -901,15 +802,7 @@
         font-weight: 600;
         color: var(--charcoal);
         line-height: 1.5;
-        margin-bottom: 16px;
-        word-break: keep-all;
-      }
-
-      .uh-desc-1 {
-        padding: 0 24px 0 40px;
-        font-size: 14px;
-        color: var(--text-body);
-        line-height: 1.75;
+        margin-bottom: 0;
         word-break: keep-all;
       }
 
@@ -1027,206 +920,7 @@
     .uh-nav-btn.next { right: 28px; }
 
     /* =================================================
-       4. 브랜드 콘셉트(6대 프리미엄) & 분양·지분등기 안내 섹션
-       ================================================= */
-    .lifecare-supply-section {
-      width: 100%;
-      background-color: var(--deep-green);
-      color: var(--ivory);
-      padding: 100px 24px;
-    }
-
-    .lifecare-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 64px;
-    }
-
-    .lifecare-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .lifecare-eyebrow {
-      font-family: 'Marcellus', serif;
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      color: var(--gold);
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    .lifecare-title {
-      font-size: clamp(24px, 3.5vw, 34px);
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 16px;
-      word-break: keep-all;
-    }
-
-    .lifecare-sub {
-      font-size: 15px;
-      line-height: 1.7;
-      color: rgba(248, 246, 240, 0.8);
-      word-break: keep-all;
-    }
-
-    .premium-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .premium-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(200, 169, 106, 0.25);
-      border-radius: 4px;
-      padding: 32px 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: border-color 0.25s ease, background 0.25s ease;
-    }
-
-    .premium-card:hover {
-      border-color: var(--gold);
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .premium-card .en-label {
-      font-family: 'Marcellus', serif;
-      font-size: 19px;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-    }
-
-    .premium-card .ko-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--white);
-    }
-
-    .premium-card .ko-desc {
-      font-size: 14px;
-      line-height: 1.6;
-      color: rgba(248, 246, 240, 0.76);
-      word-break: keep-all;
-    }
-
-    .supply-info-box {
-      background: linear-gradient(135deg, rgba(200, 169, 106, 0.14) 0%, rgba(11, 25, 20, 0.6) 100%);
-      border: 1px solid rgba(200, 169, 106, 0.4);
-      border-radius: 4px;
-      padding: 40px 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .supply-text-col {
-      flex: 1 1 460px;
-    }
-
-    .supply-badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--deep-green-dark);
-      background-color: var(--gold);
-      padding: 4px 12px;
-      border-radius: 2px;
-      margin-bottom: 14px;
-    }
-
-    .supply-headline {
-      font-size: clamp(20px, 2.6vw, 26px);
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 12px;
-      line-height: 1.4;
-      word-break: keep-all;
-    }
-
-    .supply-headline strong {
-      color: var(--gold-light);
-    }
-
-    .supply-desc {
-      font-size: 14px;
-      line-height: 1.7;
-      color: rgba(248, 246, 240, 0.82);
-      word-break: keep-all;
-    }
-
-    .supply-notice {
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(248, 246, 240, 0.6);
-      line-height: 1.5;
-    }
-
-    .supply-action-col {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-width: 240px;
-    }
-
-    .supply-btn {
-      text-align: center;
-      padding: 14px 22px;
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: 3px;
-      transition: all 0.2s ease;
-    }
-
-    .supply-btn.gold {
-      background-color: var(--gold);
-      color: var(--deep-green-dark);
-    }
-
-    .supply-btn.gold:hover {
-      background-color: var(--gold-light);
-    }
-
-    .supply-btn.outline {
-      border: 1px solid rgba(200, 169, 106, 0.5);
-      color: var(--gold-light);
-    }
-
-    @media (max-width: 960px) {
-      .lifecare-supply-section {
-        padding: 70px 20px;
-      }
-      .premium-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-      }
-      .premium-card {
-        padding: 22px 18px;
-      }
-      .supply-info-box {
-        padding: 28px 22px;
-      }
-      .supply-action-col {
-        width: 100%;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .premium-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* =================================================
-       5. 예약 섹션 바로 앞: last.jpg 브로슈어 요약 섹션
+       4. 예약 섹션 바로 앞: last.jpg 브로슈어 요약 섹션
        ================================================= */
     .last-archive-section {
       width: 100%;
@@ -1322,7 +1016,7 @@
     }
 
     /* =================================================
-       6. 마지막 섹션: 방문상담 예약 폼 + 브리핑 비주얼 (참고 자료 .framer-9whc7a)
+       5. 마지막 섹션: 방문상담 예약 폼 + 브리핑 비주얼 (참고 자료 .framer-9whc7a)
        ================================================= */
     .reservation-split-section {
       width: 100%;
@@ -1612,7 +1306,7 @@
     }
 
     /* =================================================
-       7. 푸터 & 하단 고정 플로팅 상담 바
+       6. 푸터 & 하단 고정 플로팅 상담 바
        ================================================= */
     footer.site-footer {
       background-color: #07110d;
@@ -1714,7 +1408,7 @@
     }
 
     /* =================================================
-       8. 모달 팝업 (1: 진입 시 그랜드오픈 팝업 / 2: 개인정보 수집·이용 안내)
+       7. 모달 팝업 (1: 진입 시 그랜드오픈 팝업 / 2: 개인정보 수집·이용 안내)
        ================================================= */
     .modal-backdrop {
       position: fixed;
@@ -1898,7 +1592,6 @@
         <li><a href="#intro" class="nav-link txt-en">BRAND</a></li>
         <li><a href="#aqua-terrace" class="nav-link txt-en">TERRACE &amp; POOL</a></li>
         <li><a href="#pet-park" class="nav-link txt-en">PET PARK &amp; LOUNGE</a></li>
-        <li><a href="#life-care" class="nav-link txt-en">LIFE CARE</a></li>
         <li><a href="#overview" class="nav-link txt-en">OVERVIEW</a></li>
       </ul>
       <div class="nav-utils">
@@ -1917,7 +1610,6 @@
         <li><a href="#intro" class="mobile-cat-item"><span class="txt-en">BRAND INTRO</span><span>&gt;</span></a></li>
         <li><a href="#aqua-terrace" class="mobile-cat-item"><span class="txt-en">TERRACE &amp; POOL</span><span>&gt;</span></a></li>
         <li><a href="#pet-park" class="mobile-cat-item"><span class="txt-en">PET PARK &amp; LOUNGE</span><span>&gt;</span></a></li>
-        <li><a href="#life-care" class="mobile-cat-item"><span class="txt-en">ONE-STOP LIFE CARE</span><span>&gt;</span></a></li>
         <li><a href="#overview" class="mobile-cat-item"><span class="txt-en">OVERVIEW</span><span>&gt;</span></a></li>
         <li><a href="#reservation" class="mobile-cat-item"><span>방문상담 예약</span><span>&gt;</span></a></li>
       </ul>
@@ -1963,16 +1655,6 @@
 
             <h2 class="platform-sub-headline">탁 트인 바다 조망부터 전용 파크까지,
 반려견과 눈치 보지 않고 머무는 사계절 테라스</h2>
-
-            <div class="platform-desc-group">
-              <p class="platform-desc">반려견과 함께할 때마다 숙소와 식사, 산책 공간을 따로 찾아야 했던 번거로움을 덜어냈습니다.</p>
-              <p class="platform-desc">전 세대 오션뷰 테라스와 선큰형 펫 전용 수영장, 실내·외 펫파크, 동반 레스토랑과 케어 시설이 한 단지 안에 어우러져 반려가족에게 온전한 휴식을 선사합니다.</p>
-            </div>
-
-            <div class="hero-cta-row">
-              <a href="tel:1551-7889" class="hero-cta-btn primary">전화상담 1551-7889</a>
-              <a href="sms:010-3950-8060" class="hero-cta-btn secondary">문자상담 010-3950-8060</a>
-            </div>
           </div>
         </div>
 
@@ -1997,7 +1679,6 @@
           </div>
           <h3 class="uh-head-copy">바다를 마주한 프라이빗 테라스와
 반려견의 움직임에 맞춘 전용 워터파크</h3>
-          <p class="uh-desc-1">광폭 창호로 바다와 숲이 펼쳐지는 테라스 객실부터 고급 석재 마감의 선큰 수영장, 분수 터널과 완만한 수변 데크가 마련된 플레이 풀까지 반려견과 보호자 모두의 동선을 배려해 설계했습니다.</p>
         </div>
 
         <div class="uh-viewport">
@@ -2061,7 +1742,6 @@
           </div>
           <h3 class="uh-head-copy">마음껏 달리는 천연 잔디 언덕과
 함께 식사하며 머무는 테라스 라운지</h3>
-          <p class="uh-desc-1">통나무 터널과 우드 램프가 놓인 실내·외 펫파크에서 자유롭게 뛰놀고, 잔디 마당과 맞닿은 펫 동반 레스토랑·카페 및 루프탑 테라스에서 반려견과 나란히 여유로운 시간을 보낼 수 있습니다.</p>
         </div>
 
         <div class="uh-viewport">
@@ -2114,71 +1794,12 @@
     </section>
 
     <!-- =================================================
-         5. 브랜드 콘셉트(6가지 핵심 프리미엄) & 분양·지분등기 상담 안내
-         ================================================= -->
-    <section class="lifecare-supply-section" id="life-care">
-      <div class="lifecare-inner">
-        <div class="lifecare-header">
-          <span class="lifecare-eyebrow">ONE-STOP LIFE CARE</span>
-          <h2 class="lifecare-title">아니마 풀 테라스의 6가지 핵심 프리미엄</h2>
-          <p class="lifecare-sub">숙박과 다이닝부터 문화 클래스, 그루밍과 데이케어까지 한 곳에서 누리는 반려가족 맞춤형 라이프 케어 시스템입니다.</p>
-        </div>
-
-        <div class="premium-grid">
-          <div class="premium-card">
-            <span class="en-label">01. STUDIO</span>
-            <h3 class="ko-title">전문 활동 &amp; 스튜디오</h3>
-            <p class="ko-desc">반려견과의 특별한 순간을 기록하고 전문적인 활동을 지원하는 전용 공간입니다.</p>
-          </div>
-          <div class="premium-card">
-            <span class="en-label">02. HOTEL</span>
-            <h3 class="ko-title">프리미엄 숙박</h3>
-            <p class="ko-desc">전 세대 오션뷰 테라스와 반려견 친화 설계를 갖춘 안락한 체류 공간을 제공합니다.</p>
-          </div>
-          <div class="premium-card">
-            <span class="en-label">03. CULTURE</span>
-            <h3 class="ko-title">이벤트 &amp; 클래스</h3>
-            <p class="ko-desc">펫 유치원(데이케어), 사회화 프로그램 등 반려가족을 위한 문화 클래스를 운영합니다.</p>
-          </div>
-          <div class="premium-card">
-            <span class="en-label">04. CAFE &amp; DINING</span>
-            <h3 class="ko-title">펫 레스토랑 &amp; 카페</h3>
-            <p class="ko-desc">반려견과 동반 입장하여 편안하게 식사와 티타임을 즐길 수 있는 라운지입니다.</p>
-          </div>
-          <div class="premium-card">
-            <span class="en-label">05. GOODS &amp; CARE</span>
-            <h3 class="ko-title">라이프스타일 샵 &amp; 그루밍룸</h3>
-            <p class="ko-desc">전용 그루밍룸(스파·위생 관리)과 엄선된 반려용품 라이프스타일 샵을 함께 갖췄습니다.</p>
-          </div>
-          <div class="premium-card">
-            <span class="en-label">06. GARDEN</span>
-            <h3 class="ko-title">힐링 가든 &amp; 워터존</h3>
-            <p class="ko-desc">실내·외 펫파크, 전용 수영장, 야외 음수·세족 시설이 조화를 이루는 자연 친화 정원입니다.</p>
-          </div>
-        </div>
-
-        <div class="supply-info-box">
-          <div class="supply-text-col">
-            <span class="supply-badge">GRAND OPEN 안내</span>
-            <h3 class="supply-headline"><strong>500만 원</strong>으로 시작하는 올인원 펫 프렌들리 라이프</h3>
-            <p class="supply-desc">전 세대 오션뷰와 단지 내 모든 펫 특화 부대시설을 누리는 아니마 풀 테라스의 가입·분양 및 지분등기 관련 세부 조건은 전문 상담사를 통해 투명하고 상세하게 안내해 드립니다.</p>
-            <p class="supply-notice">※ 세부 공급 조건, 지분등기 방식, 계약 및 시설 운영 규정은 홍보관 방문상담 또는 대표번호(1551-7889)를 통해 확인하실 수 있습니다.</p>
-          </div>
-          <div class="supply-action-col">
-            <a href="#reservation" class="supply-btn gold">방문상담 예약하기</a>
-            <a href="tel:1551-7889" class="supply-btn outline">대표문의 1551-7889</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================================================
-         6. 마지막 예약 섹션 바로 앞: last.jpg 이미지 & 짧은 설명
+         5. 예약 섹션 바로 앞: last.jpg 이미지 & 짧은 설명
          ================================================= -->
     <section class="last-archive-section" id="overview">
       <div class="last-archive-inner">
         <div class="last-img-frame">
-          <img src="assets/last.jpg" alt="아니마 풀 테라스 주요 부대시설 및 6가지 핵심 프리미엄 안내">
+          <img src="assets/last.jpg" alt="아니마 풀 테라스 주요 부대시설 안내">
         </div>
         <div class="last-text-box">
           <span class="last-eyebrow">AT A GLANCE</span>
@@ -2197,7 +1818,7 @@
     </section>
 
     <!-- =================================================
-         7. 마지막 섹션: 방문상담 예약 (디스코드 + 010-3950-8060 SMS 웹훅 연동)
+         6. 마지막 섹션: 방문상담 예약 (디스코드 + 010-3950-8060 SMS 웹훅 연동)
          ================================================= -->
     <section class="reservation-split-section" id="reservation">
       <div class="reservation-form-col">
@@ -2272,7 +1893,7 @@
   </main>
 
   <!-- =================================================
-       8. 푸터
+       7. 푸터
        ================================================= -->
   <footer class="site-footer">
     <div class="footer-inner">
@@ -2281,12 +1902,12 @@
         <a href="#intro">브랜드 소개</a>
         <a href="#aqua-terrace">테라스 &amp; 수영장</a>
         <a href="#pet-park">펫파크 &amp; 라운지</a>
-        <a href="#life-care">6대 핵심 프리미엄</a>
+        <a href="#overview">단지 안내</a>
         <a href="#reservation">방문상담 예약</a>
       </div>
       <div class="footer-info">
         <p><strong>사업명:</strong> 아니마 풀 테라스 (ANIMA POOL TERRACE) | <strong>대표 문의번호:</strong> <a href="tel:1551-7889">1551-7889</a> | <strong>문자상담:</strong> <a href="sms:010-3950-8060">010-3950-8060</a></p>
-        <p><strong>공식 홈페이지 표기:</strong> www.animapoolterrace.com | <strong>시행·시공 및 사업자 정보:</strong> [자료 내 미기재 · 확인 필요]</p>
+        <p><strong>공식 홈페이지 표기:</strong> www.animapoolterrace.com | <strong>시공사:</strong> 벽산 블루밍</p>
       </div>
       <div class="footer-disclaimer">
         <p>※ 본 웹페이지에 사용된 조감도, 투시도 및 연출 이미지는 소비자의 이해를 돕기 위한 것으로 실제 시공 시 차이가 있을 수 있습니다.</p>
@@ -2297,7 +1918,7 @@
   </footer>
 
   <!-- =================================================
-       9. 하단 고정 플로팅 상담 바
+       8. 하단 고정 플로팅 상담 바
        ================================================= -->
   <div class="floating-bottom-bar" aria-label="빠른 상담 메뉴">
     <a href="tel:1551-7889" class="float-btn call">전화 1551-7889</a>
@@ -2306,7 +1927,7 @@
   </div>
 
   <!-- =================================================
-       10. 페이지 진입 팝업 모달 (popup.jpg)
+       9. 페이지 진입 팝업 모달 (popup.jpg)
        ================================================= -->
   <div class="modal-backdrop" id="entryPopupModal" role="dialog" aria-modal="true" aria-label="그랜드 오픈 안내 팝업">
     <div class="entry-popup-card">
@@ -2325,7 +1946,7 @@
   </div>
 
   <!-- =================================================
-       11. 개인정보 수집·이용 안내 모달 (아니마 풀 테라스 전용)
+       10. 개인정보 수집·이용 안내 모달 (아니마 풀 테라스 전용)
        ================================================= -->
   <div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
     <div class="privacy-modal-card">
@@ -2355,27 +1976,57 @@
   </div>
 
   <!-- =================================================
-       12. 스크립트: 웹훅(방문/예약), 팝업, 슬라이더, 모달 제어
+       11. 스크립트: 웹훅(방문 1회 단일 알림/예약), 팝업, 슬라이더, 모달 제어
        ================================================= -->
   <script>
     const WEBHOOK_ENDPOINT = "https://anima-1-webhook.mohanni1006.workers.dev/";
     const ADMIN_SMS_NUMBER = "010-3950-8060";
+    const VISIT_NOTIFY_STORAGE_KEY = "anima_visit_notified_once";
 
     /* -------------------------------------------------
-       1) 페이지 접속 시 팝업 표시 & 디스코드 방문 알림 전송 (SMS 미발송)
+       1) 페이지 접속 시 디스코드 방문 알림 1회만 전송 (중복 호출·프리렌더·이중 메시지 방지)
        ------------------------------------------------- */
     async function notifyPageVisitToDiscord() {
+      // 미리보기 봇/크롤러 중복 호출 제외
+      if (/bot|spider|crawl|slurp|facebookexternalhit|discordbot|slackbot|telegrambot|twitterbot|kakaotalk-scrap/i.test(navigator.userAgent)) {
+        return;
+      }
+
+      // 브라우저 프리렌더링 상태일 경우 실제 화면 표시 시점에 1회만 실행
+      if (document.prerendering || document.visibilityState === "prerender") {
+        document.addEventListener("visibilitychange", function onVisible() {
+          if (document.visibilityState === "visible") {
+            document.removeEventListener("visibilitychange", onVisible);
+            notifyPageVisitToDiscord();
+          }
+        });
+        return;
+      }
+
+      // 동일 방문 세션 내 중복 발송 완벽 차단 (알람 2개 발송 방지)
+      if (window.__animaVisitNotified) return;
+      try {
+        if (sessionStorage.getItem(VISIT_NOTIFY_STORAGE_KEY) === "1") {
+          return;
+        }
+        sessionStorage.setItem(VISIT_NOTIFY_STORAGE_KEY, "1");
+      } catch (e) {
+        // sessionStorage 접근 제한 환경 대비 인메모리 플래그 유지
+      }
+      window.__animaVisitNotified = true;
+
       const nowKst = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
       const referrer = document.referrer || "직접 접속 (Direct)";
       const pageUrl = window.location.href;
       const deviceType = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? "모바일" : "데스크톱";
 
+      // content와 embeds가 분리 발송되지 않도록 단일 embed 구조로 통합
       const discordPayload = {
         username: "ANIMA POOL TERRACE 방문알림",
-        content: "🐾 **[아니마 풀 테라스]** 홈페이지에 새로운 방문자가 접속했습니다.",
         embeds: [
           {
-            title: "홈페이지 방문 알림",
+            title: "🐾 [아니마 풀 테라스] 홈페이지 방문 알림",
+            description: "홈페이지에 새로운 방문자가 접속했습니다.",
             color: 0xC8A96A,
             fields: [
               { name: "접속 시각 (KST)", value: nowKst, inline: true },
@@ -2392,8 +2043,9 @@
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            type: "visit",
+            sendSms: false,
             discordPayload: discordPayload
-            // smsPayload는 포함하지 않아 SMS가 발송되지 않도록 처리
           })
         });
       } catch (err) {
