@@ -1,46 +1,67 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>아니마 풀 테라스 | ANIMA POOL TERRACE</title>
-  <meta name="description" content="영종 아니마 풀 테라스 - 반려가족의 완벽한 사계절, 전 세대 오션뷰 올인원 펫 프렌들리 라이프 분양 및 지분등기 상담">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>아니마 풀 테라스 [ANIMA POOL TERRACE]</title>
+  <meta name="description" content="전 세대 오션뷰와 함께 누리는 올인원 펫 프렌들리 라이프, 아니마 풀 테라스(ANIMA POOL TERRACE) 공식 안내 및 방문상담 예약">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="아니마 풀 테라스 [ANIMA POOL TERRACE]">
+  <meta property="og:description" content="반려가족의 완벽한 사계절, 전 세대 오션뷰 올인원 펫 프렌들리 라이프">
+  <meta property="og:image" content="assets/KakaoTalk_20261107_191356868_03.png">
+  <meta property="og:url" content="https://www.animapoolterrace.com">
+
+  <!-- Fonts: Marcellus & Pretendard -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  
+
   <style>
     :root {
-      --green: #143528;
-      --green-dark: #0d241b;
-      --cream: #f8f6f0;
-      --cream-card: #f2eee6;
-      --gold: #c3a675;
-      --gold-hover: #b0915d;
-      --ink: #1f2824;
-      --text-muted: #6e7972;
-      --border: #dfdbd1;
-      --font-serif: "Marcellus", "Nanum Myeongjo", "Georgia", serif;
-      --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --deep-green: #122820;
+      --deep-green-dark: #0b1914;
+      --deep-green-soft: #1c3b30;
+      --ivory: #f8f6f0;
+      --ivory-warm: #f1ede2;
+      --white: #ffffff;
+      --gold: #c8a96a;
+      --gold-light: #dfd2b5;
+      --gold-dark: #9f7e40;
+      --charcoal: #1c1b1a;
+      --text-body: #363532;
+      --text-muted: #6e6c67;
+      --border-light: #e2ddd2;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 76px;
+      background-color: var(--ivory);
+      color: var(--charcoal);
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     }
 
     body {
-      background-color: var(--cream);
-      color: var(--ink);
-      font-family: var(--font-sans);
-      line-height: 1.7;
-      word-break: keep-all;
+      background-color: var(--ivory);
       overflow-x: hidden;
+      padding-bottom: 68px; /* 하단 플로팅 바 여백 */
+    }
+
+    .txt-en {
+      font-family: 'Marcellus', serif;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     a {
@@ -48,1293 +69,2631 @@
       text-decoration: none;
     }
 
-    button, input, select, textarea {
-      font-family: inherit;
+    /* =================================================
+       1. 상단 고정 헤더 (참고 자료 구조 계승)
+       ================================================= */
+    header.site-header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9000;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    .navbar-bg-overlay {
+      position: absolute;
+      inset: 0;
+      height: 76px;
+      background: linear-gradient(180deg, rgba(11, 25, 20, 0.92) 0%, rgba(18, 40, 32, 0.78) 100%);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      border-bottom: 1px solid rgba(200, 169, 106, 0.2);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 0 32px;
       height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 6%;
-      background: rgba(248, 246, 240, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brand-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .brand-logo .logo-en {
-      font-family: var(--font-serif);
-      font-size: 21px;
-      letter-spacing: 0.12em;
-      color: var(--green);
-      font-weight: 600;
-    }
-
-    .brand-logo .logo-sub {
-      font-size: 9px;
-      letter-spacing: 0.24em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-top: -2px;
-    }
-
-    nav {
-      display: flex;
-      gap: 32px;
-    }
-
-    nav a {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink);
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
-    .nav-contact-btn {
-      font-size: 13px;
-      font-weight: 600;
-      padding: 9px 18px;
-      background: var(--green);
-      color: #fff;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-
-    .nav-contact-btn:hover {
-      background: var(--gold);
-      color: var(--green-dark);
-    }
-
-    /* Common Layout & Utilities */
-    .wrap {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 120px 6%;
-    }
-
-    .section-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: clamp(28px, 3.2vw, 42px);
-      font-weight: 500;
-      line-height: 1.35;
-      color: var(--green);
-      margin-bottom: 20px;
-    }
-
-    .section-desc {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.8;
-      max-width: 580px;
-    }
-
-    .caption-notice {
-      font-size: 11px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-top: 14px;
-    }
-
-    /* 1. Hero Section */
-    .hero {
-      position: relative;
-      height: calc(100vh - 76px);
-      min-height: 620px;
-      max-height: 900px;
-      display: flex;
-      align-items: center;
-      color: #fff;
-      overflow: hidden;
-      background-color: var(--green-dark);
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(13, 36, 27, 0.88) 0%, rgba(13, 36, 27, 0.45) 55%, rgba(0, 0, 0, 0.15) 100%),
-                  linear-gradient(0deg, rgba(13, 36, 27, 0.6) 0%, transparent 40%);
-    }
-
-    .hero-content {
       position: relative;
       z-index: 2;
-      padding: 0 8%;
-      max-width: 820px;
     }
 
-    .hero-eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(34px, 4.4vw, 58px);
-      line-height: 1.25;
-      font-weight: 400;
-      margin-bottom: 24px;
-    }
-
-    .hero-desc {
-      font-size: 16px;
-      line-height: 1.8;
-      color: rgba(255, 255, 255, 0.88);
-      margin-bottom: 34px;
-    }
-
-    .hero-actions {
+    .nav-logo {
+      font-family: 'Marcellus', serif;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
       display: flex;
-      gap: 16px;
       align-items: center;
+      gap: 10px;
+      white-space: nowrap;
     }
 
-    .btn-gold {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 28px;
-      background-color: var(--gold);
-      color: var(--green-dark);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      border-radius: 4px;
-      transition: background 0.2s, transform 0.2s;
+    .nav-logo span.ko-sub {
+      font-family: 'Pretendard', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(248, 246, 240, 0.75);
+      letter-spacing: 0.02em;
+      border-left: 1px solid rgba(200, 169, 106, 0.35);
+      padding-left: 10px;
     }
 
-    .btn-gold:hover {
-      background-color: #d6b986;
-      transform: translateY(-2px);
+    .nav-menu-list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 34px;
     }
 
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 26px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      color: #fff;
+    .nav-link {
       font-size: 13px;
       font-weight: 500;
-      border-radius: 4px;
-      transition: border-color 0.2s;
+      letter-spacing: 0.08em;
+      color: rgba(248, 246, 240, 0.88);
+      text-transform: uppercase;
+      transition: color 0.2s ease;
     }
 
-    .btn-outline:hover {
-      border-color: #fff;
+    .nav-link:hover {
+      color: var(--gold);
     }
 
-    /* 2. Spaces & Facilities */
-    .spaces-header {
+    .nav-utils {
       display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .util-btn-call {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--gold-light);
+      padding: 8px 12px;
+    }
+
+    .util-btn-reserve {
+      font-family: 'Marcellus', 'Pretendard', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--deep-green-dark);
+      background-color: var(--gold);
+      padding: 9px 18px;
+      border-radius: 3px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .util-btn-reserve:hover {
+      background-color: var(--gold-light);
+    }
+
+    .mobile-toggle-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 24px;
+      height: 16px;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 60px;
-      flex-wrap: wrap;
+      z-index: 9100;
+    }
+
+    .mobile-toggle-btn span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background-color: var(--gold-light);
+      transition: transform 0.3s ease, opacity 0.25s ease;
+    }
+
+    .mobile-toggle-btn.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-toggle-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-toggle-btn.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu-overlay {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      .navbar-bg-overlay,
+      .nav-container {
+        height: 62px;
+        padding: 0 20px;
+      }
+      .nav-logo {
+        font-size: 15px;
+      }
+      .nav-logo span.ko-sub {
+        display: none;
+      }
+      .nav-menu-list,
+      .nav-utils {
+        display: none;
+      }
+      .mobile-toggle-btn {
+        display: flex;
+      }
+      .mobile-menu-overlay {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        background: rgba(11, 25, 20, 0.96);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        z-index: 9050;
+        padding: 92px 24px 40px;
+        flex-direction: column;
+        justify-content: space-between;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .mobile-menu-overlay.is-open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .mobile-cat-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .mobile-cat-item {
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--gold-light);
+        letter-spacing: 0.06em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(200, 169, 106, 0.15);
+      }
+      .mobile-utils-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .mobile-utils-bottom a {
+        text-align: center;
+        padding: 14px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .mobile-utils-bottom .m-call {
+        border: 1px solid var(--gold);
+        color: var(--gold-light);
+      }
+      .mobile-utils-bottom .m-sms {
+        border: 1px solid rgba(248, 246, 240, 0.3);
+        color: var(--ivory);
+      }
+      .mobile-utils-bottom .m-res {
+        background-color: var(--gold);
+        color: var(--deep-green-dark);
+      }
+    }
+
+    /* =================================================
+       2. 첫 화면 (Split Brand Intro / 참고 자료 .platform-responsive-section)
+       ================================================= */
+    .platform-responsive-section {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--ivory);
+      padding-top: 76px;
+    }
+
+    .platform-main-container {
+      width: 100%;
+      display: flex;
+      flex: 1;
+    }
+
+    @media (min-width: 961px) {
+      .platform-left {
+        flex: 1;
+        background-color: var(--ivory);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 64px 40px;
+      }
+
+      .platform-left-inner {
+        width: 100%;
+        max-width: 440px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .platform-title-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 24px;
+      }
+
+      .title-top-subtext {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--gold-dark);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .platform-main-title {
+        font-family: 'Marcellus', serif;
+        font-size: 32px;
+        color: var(--deep-green);
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .platform-title-divider {
+        display: none;
+      }
+
+      .platform-left-img-wrap {
+        width: 100%;
+        aspect-ratio: 1.45;
+        overflow: hidden;
+        margin-bottom: 28px;
+        background-color: #e5e0d5;
+        position: relative;
+        border-radius: 2px;
+      }
+
+      .platform-left-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .platform-left-img-wrap:hover img {
+        transform: scale(1.03);
+      }
+
+      .mobile-img-overlay-container {
+        display: none;
+      }
+
+      .img-mini-notice {
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.85);
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
+        pointer-events: none;
+      }
+
+      .platform-sub-headline {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--deep-green);
+        line-height: 1.45;
+        margin-bottom: 26px;
+        letter-spacing: -0.02em;
+        word-break: keep-all;
+      }
+
+      .platform-desc-group {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .platform-desc {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--text-body);
+        line-height: 1.7;
+        letter-spacing: -0.01em;
+        word-break: keep-all;
+      }
+
+      .hero-cta-row {
+        margin-top: 32px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .hero-cta-btn {
+        flex: 1;
+        text-align: center;
+        padding: 13px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 3px;
+        transition: all 0.2s ease;
+      }
+
+      .hero-cta-btn.primary {
+        background-color: var(--deep-green);
+        color: var(--gold-light);
+      }
+
+      .hero-cta-btn.primary:hover {
+        background-color: var(--deep-green-soft);
+      }
+
+      .hero-cta-btn.secondary {
+        border: 1px solid var(--deep-green);
+        color: var(--deep-green);
+      }
+
+      .hero-cta-btn.secondary:hover {
+        background-color: rgba(18, 40, 32, 0.06);
+      }
+
+      .platform-right {
+        flex: 1.08;
+        position: relative;
+        overflow: hidden;
+        min-height: 760px;
+      }
+
+      .platform-right-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .platform-right:hover .platform-right-img {
+        transform: scale(1.03);
+      }
+
+      .platform-right-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(11, 25, 20, 0.12) 0%, rgba(11, 25, 20, 0.32) 100%);
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .platform-right-badge {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        color: var(--white);
+        font-family: 'Marcellus', serif;
+        font-size: 15px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+        padding: 10px 22px;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(4px);
+      }
+
+      .platform-right-source {
+        position: absolute;
+        bottom: 22px;
+        right: 26px;
+        z-index: 2;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 0.03em;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
+        pointer-events: none;
+      }
+
+      .platform-fullwidth-bottom-img {
+        display: none;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .platform-responsive-section {
+        min-height: auto;
+        padding-top: 62px;
+      }
+
+      .platform-main-container {
+        flex-direction: column;
+      }
+
+      .platform-left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .platform-left-inner {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .platform-left-img-wrap {
+        order: 1;
+        width: 100%;
+        margin-bottom: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .platform-left-img-wrap img {
+        width: 100%;
+        height: 490px;
+        object-fit: cover;
+      }
+
+      .img-mini-notice {
+        position: absolute;
+        bottom: 10px;
+        right: 14px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.78);
+        z-index: 3;
+      }
+
+      .mobile-img-overlay-container {
+        display: flex;
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(11, 25, 20, 0.48) 0%, rgba(11, 25, 20, 0.15) 50%, rgba(11, 25, 20, 0.62) 100%);
+        padding: 34px 24px 36px;
+        flex-direction: column;
+        justify-content: space-between;
+        color: var(--white);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .overlay-brand-title {
+        font-family: 'Marcellus', serif;
+        font-size: 23px;
+        letter-spacing: 0.06em;
+        color: var(--gold-light);
+        margin-bottom: 6px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .overlay-sub-desc {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.92);
+        line-height: 1.5;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      .overlay-bottom-content {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Marcellus', serif;
+        font-size: 14px;
+        color: var(--gold-light);
+        letter-spacing: 0.08em;
+      }
+
+      .bounce-arrow {
+        display: inline-block;
+        animation: bounceVertical 1.6s infinite ease-in-out;
+      }
+
+      @keyframes bounceVertical {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(5px); }
+      }
+
+      .platform-title-row {
+        order: 2;
+        padding: 0 24px;
+        margin-bottom: 12px;
+      }
+
+      .title-top-subtext {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--gold-dark);
+        letter-spacing: 0.1em;
+        margin-bottom: 4px;
+      }
+
+      .title-flex-box {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+      }
+
+      .platform-main-title {
+        font-family: 'Marcellus', serif;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--deep-green);
+      }
+
+      .platform-title-divider {
+        display: block;
+        flex: 1;
+        height: 1px;
+        background-color: var(--border-light);
+      }
+
+      .platform-sub-headline {
+        order: 3;
+        padding: 0 24px;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--deep-green);
+        line-height: 1.5;
+        margin-bottom: 24px;
+        word-break: keep-all;
+      }
+
+      .platform-desc-group {
+        order: 4;
+        padding: 0 24px 0 40px;
+        margin-bottom: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .platform-desc {
+        font-size: 14px;
+        color: var(--text-body);
+        line-height: 1.72;
+        word-break: keep-all;
+      }
+
+      .hero-cta-row {
+        order: 5;
+        padding: 0 24px 36px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .hero-cta-btn {
+        flex: 1;
+        text-align: center;
+        padding: 12px 10px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 3px;
+      }
+
+      .hero-cta-btn.primary {
+        background-color: var(--deep-green);
+        color: var(--gold-light);
+      }
+
+      .hero-cta-btn.secondary {
+        border: 1px solid var(--deep-green);
+        color: var(--deep-green);
+      }
+
+      .platform-right {
+        width: 100%;
+        padding-left: 40px;
+        margin-bottom: 32px;
+        position: relative;
+      }
+
+      .platform-right-img {
+        width: 100%;
+        height: 310px;
+        object-fit: cover;
+      }
+
+      .platform-right-overlay {
+        position: absolute;
+        top: 0;
+        left: 40px;
+        right: 0;
+        bottom: 0;
+        background: rgba(11, 25, 20, 0.2);
+        pointer-events: none;
+      }
+
+      .platform-right-badge {
+        display: none;
+      }
+
+      .platform-right-source {
+        position: absolute;
+        bottom: 10px;
+        right: 14px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 11px;
+        z-index: 2;
+      }
+    }
+
+    /* =================================================
+       3. 공통 가로 슬라이더 섹션 (참고 자료 .uh-rh / .uh-ri / .uh-rj)
+       ================================================= */
+    .uh-section {
+      width: 100%;
+      background-color: var(--ivory);
+      padding: 96px 0;
+      overflow: hidden;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .uh-section.alt-bg {
+      background-color: var(--ivory-warm);
+    }
+
+    .uh-slider-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 961px) {
+      .uh-header-content {
+        max-width: 1200px;
+        margin: 0 auto 44px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .uh-title-row {
+        width: 100%;
+        margin-bottom: 16px;
+      }
+
+      .uh-title {
+        font-family: 'Marcellus', serif;
+        font-size: 32px;
+        color: var(--deep-green);
+        letter-spacing: 0.08em;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      .uh-title-divider {
+        display: none;
+      }
+
+      .uh-head-copy {
+        font-size: 18px;
+        line-height: 1.45;
+        font-weight: 600;
+        color: var(--charcoal);
+        margin-bottom: 24px;
+        word-break: keep-all;
+      }
+
+      .uh-desc-1 {
+        font-size: 15px;
+        line-height: 1.8;
+        color: var(--text-body);
+        max-width: 760px;
+        word-break: keep-all;
+      }
+
+      .uh-viewport {
+        --container-padding: max(24px, calc((100vw - 1200px) / 2));
+        width: 100%;
+        position: relative;
+      }
+
+      .uh-track {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        padding-left: var(--container-padding);
+      }
+
+      .uh-slide {
+        flex: 0 0 880px;
+        display: flex;
+        flex-direction: column;
+        margin-right: 16px;
+      }
+
+      .uh-slide:last-child {
+        margin-right: 0;
+      }
+
+      .uh-image-wrapper {
+        width: 100%;
+        aspect-ratio: 1.52;
+        overflow: hidden;
+        background-color: #e6e2d8;
+        position: relative;
+        border-radius: 2px;
+      }
+
+      .uh-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .uh-caption {
+        margin-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: var(--text-body);
+        font-weight: 500;
+      }
+
+      .uh-caption span.notice {
+        font-size: 12px;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .uh-section {
+        padding: 64px 0;
+      }
+
+      .uh-header-content {
+        width: 100%;
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .uh-title-row {
+        padding: 0 24px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .uh-title {
+        font-family: 'Marcellus', serif;
+        font-size: clamp(19px, 6vw, 28px);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: var(--deep-green);
+        white-space: nowrap;
+      }
+
+      .uh-title-divider {
+        display: block;
+        flex: 1;
+        height: 1px;
+        background-color: var(--border-light);
+      }
+
+      .uh-head-copy {
+        padding: 0 24px;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--charcoal);
+        line-height: 1.5;
+        margin-bottom: 16px;
+        word-break: keep-all;
+      }
+
+      .uh-desc-1 {
+        padding: 0 24px 0 40px;
+        font-size: 14px;
+        color: var(--text-body);
+        line-height: 1.75;
+        word-break: keep-all;
+      }
+
+      .uh-viewport {
+        width: 100%;
+        position: relative;
+        touch-action: pan-y;
+      }
+
+      .uh-track {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
+        padding-left: 24px;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .uh-slide {
+        flex: 0 0 85vw;
+        max-width: 85vw;
+        margin-right: 12px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .uh-image-wrapper {
+        width: 100%;
+        height: 290px;
+        overflow: hidden;
+        background-color: #e6e2d8;
+        border-radius: 2px;
+      }
+
+      .uh-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .uh-caption {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        font-size: 13px;
+        color: var(--text-body);
+        font-weight: 500;
+      }
+
+      .uh-caption span.notice {
+        font-size: 11px;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      .uh-nav-btn {
+        display: none !important;
+      }
+    }
+
+    .uh-progress-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 24px;
+      margin-top: 30px;
+    }
+
+    .uh-progress-bar {
+      width: 100%;
+      max-width: 560px;
+      height: 2px;
+      background-color: #dcd6c8;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .uh-progress-fill {
+      height: 100%;
+      background-color: var(--deep-green);
+      transition: width 0.4s ease;
+    }
+
+    .uh-nav-btn {
+      display: flex;
+      position: absolute;
+      top: 43%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(18, 40, 32, 0.72);
+      border: 1px solid rgba(200, 169, 106, 0.45);
+      color: var(--gold-light);
+      z-index: 10;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .uh-nav-btn:hover:not(:disabled) {
+      background: var(--deep-green);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .uh-nav-btn:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
+
+    .uh-nav-btn.prev { left: 28px; }
+    .uh-nav-btn.next { right: 28px; }
+
+    /* =================================================
+       4. 브랜드 콘셉트(6대 프리미엄) & 분양·지분등기 안내 섹션
+       ================================================= */
+    .lifecare-supply-section {
+      width: 100%;
+      background-color: var(--deep-green);
+      color: var(--ivory);
+      padding: 100px 24px;
+    }
+
+    .lifecare-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    .lifecare-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .lifecare-eyebrow {
+      font-family: 'Marcellus', serif;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .lifecare-title {
+      font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+      word-break: keep-all;
+    }
+
+    .lifecare-sub {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(248, 246, 240, 0.8);
+      word-break: keep-all;
+    }
+
+    .premium-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-
-    .space-card {
-      background: var(--cream-card);
-      border-radius: 6px;
-      overflow: hidden;
+    .premium-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(200, 169, 106, 0.25);
+      border-radius: 4px;
+      padding: 32px 26px;
       display: flex;
       flex-direction: column;
-      border: 1px solid var(--border);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 10px;
+      transition: border-color 0.25s ease, background 0.25s ease;
     }
 
-    .space-card:hover {
-      transform: translateY(-6px);
+    .premium-card:hover {
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.07);
     }
 
-    .space-img-wrap {
-      width: 100%;
-      height: 290px;
-      overflow: hidden;
-      position: relative;
+    .premium-card .en-label {
+      font-family: 'Marcellus', serif;
+      font-size: 19px;
+      letter-spacing: 0.08em;
+      color: var(--gold);
     }
 
-    .space-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s ease;
-    }
-
-    .space-card:hover .space-img-wrap img {
-      transform: scale(1.05);
-    }
-
-    .space-tag {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: rgba(20, 53, 40, 0.85);
-      color: #fff;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      padding: 4px 10px;
-      border-radius: 3px;
-      font-family: var(--font-serif);
-    }
-
-    .space-body {
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .space-body h3 {
-      font-size: 18px;
-      color: var(--green);
+    .premium-card .ko-title {
+      font-size: 16px;
       font-weight: 600;
-      margin-bottom: 10px;
+      color: var(--white);
     }
 
-    .space-body p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
-      flex: 1;
+    .premium-card .ko-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(248, 246, 240, 0.76);
+      word-break: keep-all;
     }
 
-    .space-link {
+    .supply-info-box {
+      background: linear-gradient(135deg, rgba(200, 169, 106, 0.14) 0%, rgba(11, 25, 20, 0.6) 100%);
+      border: 1px solid rgba(200, 169, 106, 0.4);
+      border-radius: 4px;
+      padding: 40px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .supply-text-col {
+      flex: 1 1 460px;
+    }
+
+    .supply-badge {
+      display: inline-block;
       font-size: 12px;
       font-weight: 600;
+      color: var(--deep-green-dark);
+      background-color: var(--gold);
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+
+    .supply-headline {
+      font-size: clamp(20px, 2.6vw, 26px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.4;
+      word-break: keep-all;
+    }
+
+    .supply-headline strong {
+      color: var(--gold-light);
+    }
+
+    .supply-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(248, 246, 240, 0.82);
+      word-break: keep-all;
+    }
+
+    .supply-notice {
+      margin-top: 10px;
+      font-size: 12px;
+      color: rgba(248, 246, 240, 0.6);
+      line-height: 1.5;
+    }
+
+    .supply-action-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 240px;
+    }
+
+    .supply-btn {
+      text-align: center;
+      padding: 14px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+    }
+
+    .supply-btn.gold {
+      background-color: var(--gold);
+      color: var(--deep-green-dark);
+    }
+
+    .supply-btn.gold:hover {
+      background-color: var(--gold-light);
+    }
+
+    .supply-btn.outline {
+      border: 1px solid rgba(200, 169, 106, 0.5);
+      color: var(--gold-light);
+    }
+
+    @media (max-width: 960px) {
+      .lifecare-supply-section {
+        padding: 70px 20px;
+      }
+      .premium-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+      .premium-card {
+        padding: 22px 18px;
+      }
+      .supply-info-box {
+        padding: 28px 22px;
+      }
+      .supply-action-col {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .premium-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =================================================
+       5. 예약 섹션 바로 앞: last.jpg 브로슈어 요약 섹션
+       ================================================= */
+    .last-archive-section {
+      width: 100%;
+      background-color: var(--ivory);
+      padding: 96px 24px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .last-archive-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .last-img-frame {
+      width: 100%;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(18, 40, 32, 0.12);
+      border: 1px solid var(--border-light);
+      background-color: var(--deep-green-dark);
+    }
+
+    .last-img-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .last-text-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .last-eyebrow {
+      font-family: 'Marcellus', serif;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+    }
+
+    .last-title {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      color: var(--deep-green);
+      line-height: 1.4;
+      word-break: keep-all;
+    }
+
+    .last-desc {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .last-facility-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .last-tag {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--deep-green);
+      background-color: var(--ivory-warm);
+      border: 1px solid var(--border-light);
+      padding: 7px 14px;
+      border-radius: 20px;
+    }
+
+    .last-caption-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 960px) {
+      .last-archive-section {
+        padding: 64px 20px;
+      }
+      .last-archive-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* =================================================
+       6. 마지막 섹션: 방문상담 예약 폼 + 브리핑 비주얼 (참고 자료 .framer-9whc7a)
+       ================================================= */
+    .reservation-split-section {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      background-color: var(--deep-green-dark);
+      min-height: 820px;
+    }
+
+    .reservation-form-col {
+      width: 40%;
+      background-color: var(--deep-green-dark);
+      padding: 64px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+      border-right: 1px solid rgba(200, 169, 106, 0.15);
+    }
+
+    .form-header-box {
+      margin-bottom: 8px;
+    }
+
+    .form-eyebrow {
+      font-family: 'Marcellus', serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
       color: var(--gold);
-      display: inline-flex;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .form-main-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .form-sub-desc {
+      font-size: 13px;
+      color: rgba(248, 246, 240, 0.7);
+      line-height: 1.55;
+    }
+
+    .form-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold-light);
+      display: flex;
       align-items: center;
       gap: 4px;
     }
 
-    /* 3. Brand Concept & Philosophy */
-    .philosophy-section {
-      background: var(--green);
-      color: #fff;
-      padding: 120px 6%;
-    }
-
-    .philosophy-section .section-title {
-      color: #fff;
-    }
-
-    .philosophy-section .section-desc {
-      color: rgba(255, 255, 255, 0.75);
-    }
-
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
-      margin-top: 64px;
-    }
-
-    .pillar-card {
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 28px;
-    }
-
-    .pillar-num {
-      font-family: var(--font-serif);
-      font-size: 12px;
-      letter-spacing: 0.15em;
+    .form-label .req {
       color: var(--gold);
-      margin-bottom: 16px;
-      display: block;
     }
 
-    .pillar-card h3 {
-      font-size: 20px;
-      font-weight: 500;
-      margin-bottom: 14px;
-    }
-
-    .pillar-card p {
-      font-size: 13px;
-      line-height: 1.9;
-      color: rgba(255, 255, 255, 0.78);
-    }
-
-    /* 4. Sales & Co-ownership */
-    .ownership-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .ownership-img {
+    .form-input,
+    .form-textarea {
       width: 100%;
-      height: 540px;
-      object-fit: cover;
-      border-radius: 6px;
-      display: block;
-      border: 1px solid var(--border);
-    }
-
-    .ownership-content {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .ownership-highlight {
-      font-family: var(--font-serif);
-      font-size: 30px;
-      color: var(--green);
-      line-height: 1.35;
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-
-    .ownership-options {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin: 28px 0;
-    }
-
-    .option-item {
-      display: flex;
-      gap: 16px;
-      padding: 18px 20px;
-      background: var(--cream-card);
-      border-radius: 6px;
-      border-left: 3px solid var(--gold);
-    }
-
-    .option-item h4 {
-      font-size: 15px;
-      color: var(--green);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .option-item p {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* 5. Life Section with last.jpg */
-    .life-section {
-      background-color: var(--cream-card);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .life-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .life-facilities-list {
-      list-style: none;
-      margin: 28px 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px 20px;
-    }
-
-    .life-facilities-list li {
-      font-size: 14px;
-      color: var(--ink);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .life-facilities-list li::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      background: var(--gold);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .brochure-preview {
-      display: block;
-      background: #fff;
-      padding: 14px;
+      background-color: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 8px;
-      border: 1px solid var(--border);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+      padding: 13px 14px;
+      color: var(--white);
+      font-family: 'Pretendard', sans-serif;
+      font-size: 14px;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
     }
 
-    .brochure-preview img {
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(248, 246, 240, 0.38);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background-color: rgba(255, 255, 255, 0.11);
+    }
+
+    .form-textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    /* 개인정보 동의 박스 */
+    .privacy-box {
+      width: 100%;
+      padding: 13px 16px;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(200, 169, 106, 0.28);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .privacy-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .privacy-checkbox-input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .privacy-label-text {
+      font-size: 13px;
+      color: rgba(248, 246, 240, 0.88);
+    }
+
+    .privacy-open-btn {
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 12px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .submit-btn {
+      width: 100%;
+      height: 52px;
+      background-color: var(--gold);
+      color: var(--deep-green-dark);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Marcellus', 'Pretendard', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      background-color: var(--gold-light);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    .form-status-msg {
+      display: none;
+      padding: 13px 15px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+
+    .form-status-msg.success {
+      display: block;
+      background-color: rgba(46, 125, 82, 0.22);
+      border: 1px solid rgba(110, 205, 150, 0.45);
+      color: #d8f8e3;
+    }
+
+    .form-status-msg.error {
+      display: block;
+      background-color: rgba(180, 50, 50, 0.25);
+      border: 1px solid rgba(235, 110, 110, 0.5);
+      color: #ffdada;
+    }
+
+    .reservation-visual-col {
+      width: 60%;
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+    }
+
+    .reservation-visual-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    .reservation-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 25, 20, 0.45) 0%, rgba(11, 25, 20, 0.72) 100%);
+      z-index: 1;
+    }
+
+    .reservation-visual-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--white);
+    }
+
+    .visual-top-tag {
+      font-family: 'Marcellus', serif;
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+    }
+
+    .visual-bottom-box {
+      max-width: 520px;
+    }
+
+    .visual-headline {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      word-break: keep-all;
+    }
+
+    .visual-subcopy {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(248, 246, 240, 0.88);
+      margin-bottom: 28px;
+      word-break: keep-all;
+    }
+
+    .visual-contact-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .visual-contact-item {
+      background: rgba(11, 25, 20, 0.65);
+      border: 1px solid rgba(200, 169, 106, 0.4);
+      padding: 12px 18px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--ivory);
+    }
+
+    .visual-contact-item strong {
+      display: block;
+      font-size: 16px;
+      color: var(--gold-light);
+      margin-top: 2px;
+    }
+
+    @media (max-width: 960px) {
+      .reservation-split-section {
+        flex-direction: column-reverse;
+      }
+      .reservation-form-col,
+      .reservation-visual-col {
+        width: 100%;
+      }
+      .reservation-form-col {
+        padding: 44px 24px;
+      }
+      .reservation-visual-col {
+        min-height: 360px;
+      }
+      .reservation-visual-content {
+        padding: 32px 24px;
+      }
+    }
+
+    /* =================================================
+       7. 푸터 & 하단 고정 플로팅 상담 바
+       ================================================= */
+    footer.site-footer {
+      background-color: #07110d;
+      color: rgba(248, 246, 240, 0.72);
+      padding: 48px 24px 64px;
+      font-size: 12px;
+      line-height: 1.7;
+      border-top: 1px solid rgba(200, 169, 106, 0.15);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: 'Marcellus', serif;
+      font-size: 18px;
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ivory);
+    }
+
+    .footer-info p {
+      margin-bottom: 4px;
+      word-break: keep-all;
+    }
+
+    .footer-disclaimer {
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(248, 246, 240, 0.5);
+      font-size: 11.5px;
+    }
+
+    /* 하단 플로팅 바 */
+    .floating-bottom-bar {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(94%, 680px);
+      background: rgba(11, 25, 20, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(200, 169, 106, 0.45);
+      border-radius: 8px;
+      padding: 8px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 8px;
+      z-index: 8500;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .float-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 8px;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      white-space: nowrap;
+      transition: opacity 0.2s ease;
+    }
+
+    .float-btn:hover {
+      opacity: 0.9;
+    }
+
+    .float-btn.call {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+    }
+
+    .float-btn.sms {
+      background-color: rgba(200, 169, 106, 0.18);
+      color: var(--gold-light);
+    }
+
+    .float-btn.res {
+      background-color: var(--gold);
+      color: var(--deep-green-dark);
+      font-weight: 700;
+    }
+
+    /* =================================================
+       8. 모달 팝업 (1: 진입 시 그랜드오픈 팝업 / 2: 개인정보 수집·이용 안내)
+       ================================================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 12, 9, 0.72);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.is-visible {
+      display: flex;
+    }
+
+    /* 진입 팝업 카드 */
+    .entry-popup-card {
+      width: 100%;
+      max-width: 420px;
+      background-color: var(--deep-green-dark);
+      border: 1px solid rgba(200, 169, 106, 0.5);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .entry-popup-img-wrap {
+      width: 100%;
+      max-height: 70vh;
+      overflow-y: auto;
+      background-color: #0b1914;
+    }
+
+    .entry-popup-img-wrap img {
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 4px;
     }
 
-    .brochure-caption {
-      text-align: center;
-      font-size: 12px;
-      color: var(--gold);
-      font-weight: 500;
-      margin-top: 10px;
-    }
-
-    /* 6. Reservation Form Section */
-    .reservation-section {
-      background: var(--green);
-      color: #fff;
-      padding: 110px 6%;
-    }
-
-    .res-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 70px;
-      align-items: flex-start;
-    }
-
-    .res-info .section-title {
-      color: #fff;
-    }
-
-    .contact-box {
-      margin: 36px 0;
-      padding: 24px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 6px;
-    }
-
-    .contact-tel {
-      font-family: var(--font-serif);
-      font-size: 32px;
-      color: var(--gold);
-      display: block;
-      line-height: 1.2;
-      margin-bottom: 6px;
-    }
-
-    .contact-sms {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .booking-form {
-      background: rgba(13, 36, 27, 0.7);
-      padding: 40px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .form-group-row {
+    .entry-popup-cta-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 18px;
-    }
-
-    .form-field label {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.85);
-      font-weight: 500;
-    }
-
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 4px;
-      color: #fff;
-      padding: 12px 14px;
-      font-size: 13px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus {
-      border-color: var(--gold);
-    }
-
-    .form-field select option {
-      background: #1c2722;
-      color: #fff;
-    }
-
-    .form-field textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-
-    .privacy-card {
-      margin-bottom: 20px;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-      padding: 14px 16px;
-    }
-
-    .privacy-card summary {
-      cursor: pointer;
-      font-size: 12px;
-      color: var(--gold);
-      font-weight: 500;
-    }
-
-    .privacy-card-body {
-      margin-top: 12px;
-      font-size: 11px;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .checkbox-label {
-      display: flex;
-      align-items: center;
       gap: 8px;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 24px;
-      cursor: pointer;
+      padding: 12px 14px 8px;
+      background-color: var(--deep-green);
     }
 
-    .checkbox-label input {
-      accent-color: var(--gold);
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-    }
-
-    .btn-submit {
-      width: 100%;
-      padding: 15px;
-      background: var(--gold);
-      color: var(--green-dark);
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .btn-submit:hover:not(:disabled) {
-      background: #d8be8d;
-    }
-
-    .btn-submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    #form-status {
-      margin-top: 14px;
-      font-size: 12px;
-      line-height: 1.6;
+    .entry-popup-cta-row a {
       text-align: center;
-    }
-
-    /* Fixed Quick Bar */
-    .quick-bar {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 90;
-      display: flex;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
-      border-radius: 30px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .quick-btn {
-      padding: 14px 22px;
-      font-size: 12px;
+      padding: 11px 8px;
+      font-size: 13px;
       font-weight: 600;
-      text-align: center;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity 0.2s;
+      border-radius: 4px;
     }
 
-    .quick-btn.call {
-      background: var(--green-dark);
-      color: #fff;
+    .entry-popup-cta-row .p-call {
+      background-color: var(--gold);
+      color: var(--deep-green-dark);
     }
 
-    .quick-btn.sms {
-      background: var(--green);
-      color: #fff;
-      border-left: 1px solid rgba(255, 255, 255, 0.15);
+    .entry-popup-cta-row .p-res {
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
     }
 
-    .quick-btn.reserve {
-      background: var(--gold);
-      color: var(--green-dark);
-      border-left: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    /* Popup Dialog */
-    dialog#popup-modal {
-      border: none;
-      border-radius: 8px;
-      padding: 0;
-      margin: auto;
-      max-width: 420px;
-      width: calc(100% - 36px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-      overflow: hidden;
-      background: var(--cream);
-    }
-
-    dialog#popup-modal::backdrop {
-      background: rgba(13, 36, 27, 0.7);
-      backdrop-filter: blur(4px);
-    }
-
-    .popup-header {
+    .entry-popup-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 18px;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      background-color: #08130f;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .popup-header span {
-      font-family: var(--font-serif);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--green);
-      letter-spacing: 0.08em;
-    }
-
-    .popup-close-btn {
+    .entry-popup-footer button {
       background: none;
       border: none;
-      font-size: 20px;
-      line-height: 1;
+      color: rgba(248, 246, 240, 0.78);
+      font-size: 12px;
       cursor: pointer;
-      color: #777;
+      padding: 4px 6px;
     }
 
-    .popup-body img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .popup-footer {
-      padding: 12px 18px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background: #fff;
-    }
-
-    .popup-cta-btn {
-      width: 100%;
-      padding: 12px;
-      background: var(--green);
-      color: #fff;
-      text-align: center;
-      border-radius: 4px;
-      font-size: 13px;
+    .entry-popup-footer button.close-strong {
+      color: var(--gold-light);
       font-weight: 600;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 900px) {
-      header {
-        height: 64px;
-        padding: 0 5%;
-      }
-      nav {
-        display: none;
-      }
-      .wrap {
-        padding: 70px 6%;
-      }
-      .cards-grid,
-      .pillars-grid,
-      .ownership-grid,
-      .life-grid,
-      .res-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .form-group-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-      .ownership-img {
-        height: 380px;
-      }
-      .booking-form {
-        padding: 24px;
-      }
-      .quick-bar {
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-        border-radius: 8px;
-      }
-      .quick-btn {
-        flex: 1;
-        padding: 14px 6px;
-        justify-content: center;
-        font-size: 12px;
-      }
-      .reservation-section {
-        padding-bottom: 90px;
-      }
+    /* 개인정보 수집·이용 안내 모달 카드 */
+    .privacy-modal-card {
+      width: 100%;
+      max-width: 520px;
+      max-height: 82vh;
+      background: var(--white);
+      color: var(--charcoal);
+      border-radius: 10px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .privacy-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #e6e2d8;
+    }
+
+    .privacy-modal-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--deep-green);
+    }
+
+    .privacy-modal-close {
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: #777;
+      cursor: pointer;
+    }
+
+    .privacy-modal-body {
+      overflow-y: auto;
+      font-size: 13px;
+      color: #444;
+      line-height: 1.68;
+      padding-right: 6px;
+    }
+
+    .privacy-modal-body h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--deep-green);
+      margin: 14px 0 4px;
+    }
+
+    .privacy-modal-body h4:first-child {
+      margin-top: 0;
+    }
+
+    .privacy-modal-footer {
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .privacy-modal-confirm-btn {
+      padding: 10px 20px;
+      background: var(--deep-green);
+      color: var(--gold-light);
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <a href="#home" class="brand-logo">
-      <span class="logo-en">ANIMA</span>
-      <span class="logo-sub">Pool Terrace</span>
-    </a>
-    <nav>
-      <a href="#spaces">공간 소개</a>
-      <a href="#philosophy">브랜드 철학</a>
-      <a href="#ownership">분양·지분등기</a>
-      <a href="#life">프리미엄 시설</a>
-    </nav>
-    <a href="#reservation" class="nav-contact-btn">방문상담 예약 ↗</a>
+  <!-- =================================================
+       1. 고정 헤더 (네비게이션)
+       ================================================= -->
+  <header class="site-header">
+    <div class="navbar-bg-overlay"></div>
+    <div class="nav-container">
+      <a href="#top" class="nav-logo">
+        <span>ANIMA POOL TERRACE</span>
+        <span class="ko-sub">아니마 풀 테라스</span>
+      </a>
+      <ul class="nav-menu-list">
+        <li><a href="#intro" class="nav-link txt-en">BRAND</a></li>
+        <li><a href="#aqua-terrace" class="nav-link txt-en">TERRACE &amp; POOL</a></li>
+        <li><a href="#pet-park" class="nav-link txt-en">PET PARK &amp; LOUNGE</a></li>
+        <li><a href="#life-care" class="nav-link txt-en">LIFE CARE</a></li>
+        <li><a href="#overview" class="nav-link txt-en">OVERVIEW</a></li>
+      </ul>
+      <div class="nav-utils">
+        <a href="tel:1551-7889" class="util-btn-call">문의 1551-7889</a>
+        <a href="#reservation" class="util-btn-reserve">방문상담 예약</a>
+      </div>
+      <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+      <ul class="mobile-cat-list">
+        <li><a href="#intro" class="mobile-cat-item"><span class="txt-en">BRAND INTRO</span><span>&gt;</span></a></li>
+        <li><a href="#aqua-terrace" class="mobile-cat-item"><span class="txt-en">TERRACE &amp; POOL</span><span>&gt;</span></a></li>
+        <li><a href="#pet-park" class="mobile-cat-item"><span class="txt-en">PET PARK &amp; LOUNGE</span><span>&gt;</span></a></li>
+        <li><a href="#life-care" class="mobile-cat-item"><span class="txt-en">ONE-STOP LIFE CARE</span><span>&gt;</span></a></li>
+        <li><a href="#overview" class="mobile-cat-item"><span class="txt-en">OVERVIEW</span><span>&gt;</span></a></li>
+        <li><a href="#reservation" class="mobile-cat-item"><span>방문상담 예약</span><span>&gt;</span></a></li>
+      </ul>
+      <div class="mobile-utils-bottom">
+        <a href="tel:1551-7889" class="m-call">전화상담 1551-7889</a>
+        <a href="sms:010-3950-8060" class="m-sms">문자상담 010-3950-8060</a>
+        <a href="#reservation" class="m-res">방문상담 예약하기</a>
+      </div>
+    </div>
   </header>
 
-  <!-- 1. Hero Section -->
-  <section class="hero" id="home">
-    <img src="assets/hero.webp" alt="영종 아니마 풀 테라스 오션뷰 테라스 연출 이미지" class="hero-bg" fetchpriority="high">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">YEONGJONG · ANIMA POOL TERRACE</p>
-      <h1 class="hero-title">반려가족을 위한<br>완벽한 사계절의 시작.</h1>
-      <p class="hero-desc">
-        서해의 석양과 파노라마 오션뷰, 그리고 반려견과 나란히 머무는 일상.<br>
-        더 이상 타협하지 않는 프리미엄 반려가족 전용 공간을 제안합니다.
-      </p>
-      <div class="hero-actions">
-        <a href="#reservation" class="btn-gold">방문상담 신청하기 ↗</a>
-        <a href="#spaces" class="btn-outline">공간 둘러보기 ↓</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. Spaces & Facilities Section -->
-  <section class="wrap" id="spaces">
-    <div class="spaces-header">
-      <div>
-        <p class="section-eyebrow">SPACES FOR PET FAMILY</p>
-        <h2 class="section-title">자연과 어우러지는<br>반려가족 전용 공간</h2>
-      </div>
-      <p class="section-desc">
-        물놀이와 자유로운 질주, 느긋한 티타임까지.<br>
-        반려견의 눈높이와 보호자의 안락함을 모두 반영하여 세심하게 설계되었습니다.
-      </p>
-    </div>
-
-    <div class="cards-grid">
-      <!-- Card 1: Pool -->
-      <article class="space-card">
-        <div class="space-img-wrap">
-          <img src="assets/pool.webp" alt="선큰 & 비치형 펫 전용 수영장 연출 이미지" loading="lazy">
-          <span class="space-tag">01 / POOL</span>
-        </div>
-        <div class="space-body">
-          <h3>선큰 & 비치형 펫 전용 수영장</h3>
-          <p>석재 폭포와 완만한 비치형 진입로, 수중 터널 분수대를 갖춰 소형견부터 대형견까지 안전하게 물놀이를 즐길 수 있습니다.</p>
-          <a href="#reservation" class="space-link">수영장 시설 문의 ↗</a>
-        </div>
-      </article>
-
-      <!-- Card 2: Garden / Park -->
-      <article class="space-card">
-        <div class="space-img-wrap">
-          <img src="assets/garden.webp" alt="잔디 어질리티 펫파크 연출 이미지" loading="lazy">
-          <span class="space-tag">02 / GARDEN</span>
-        </div>
-        <div class="space-body">
-          <h3>대형 잔디광장 & 어질리티 펫파크</h3>
-          <p>잔디 언덕, 원목 경사로, 터널 어질리티가 마련되어 있어 목줄 없이 안전하게 교감하며 뛰어놀 수 있는 힐링 가든입니다.</p>
-          <a href="#reservation" class="space-link">펫파크 이용 안내 ↗</a>
-        </div>
-      </article>
-
-      <!-- Card 3: Terrace -->
-      <article class="space-card">
-        <div class="space-img-wrap">
-          <img src="assets/terrace.webp" alt="루프탑 가든 및 테라스 연출 이미지" loading="lazy">
-          <span class="space-tag">03 / TERRACE</span>
-        </div>
-        <div class="space-body">
-          <h3>루프탑 가든 & 프라이빗 테라스</h3>
-          <p>탁 트인 자연 조망을 배경으로 전용 야외 다이닝과 바베큐를 즐길 수 있는 가족만의 독립적인 쉼터입니다.</p>
-          <a href="#reservation" class="space-link">객실 테라스 상담 ↗</a>
-        </div>
-      </article>
-    </div>
-    <p class="caption-notice">※ 상기 이미지는 고객의 이해를 돕기 위해 연출된 그래픽이며 실제 시공 및 운영 방식은 최종 공급 기준에 따릅니다.</p>
-  </section>
-
-  <!-- 3. Brand Philosophy Section -->
-  <section class="philosophy-section" id="philosophy">
-    <div style="max-width: 1240px; margin: 0 auto;">
-      <p class="section-eyebrow">THE ANIMA PHILOSOPHY</p>
-      <h2 class="section-title">‘반려견 동반’을 넘어,<br>‘반려가족 전용’의 기준을 세우다</h2>
-      <p class="section-desc">일반 투숙객의 눈치를 보지 않고 우리 아이의 행복을 최우선으로 누리는 진정한 펫 프렌들리 라이프케어를 지향합니다.</p>
-
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <span class="pillar-num">01 / LIVING CARE</span>
-          <h3>반려동물 중심 설계</h3>
-          <p>단지 내 전용 음수대, 발 세척 스테이션, 펫 친화형 미끄럼 방지 바닥재 등 입주견과 보호자의 일상을 가장 먼저 생각합니다.</p>
-        </div>
-        <div class="pillar-card">
-          <span class="pillar-num">02 / TOTAL INFRA</span>
-          <h3>올인원 케어 인프라</h3>
-          <p>단지 내에서 전문가의 돌봄을 받는 펫유치원, 프리미엄 펫그루밍룸, 전문 포토 스튜디오까지 원스톱 라이프케어가 이어집니다.</p>
-        </div>
-        <div class="pillar-card">
-          <span class="pillar-num">03 / PREMIUM REST</span>
-          <h3>전 세대 오션뷰 조망</h3>
-          <p>인천대교와 서해 바다의 파노라마 조망을 품고 계절마다 달라지는 영종도의 풍경 속에서 온전한 쉼을 경험할 수 있습니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Ownership Guide Section -->
-  <section class="wrap" id="ownership">
-    <div class="ownership-grid">
-      <img src="assets/architecture.webp" alt="아니마 풀 테라스 외관 건축 연출 이미지" class="ownership-img" loading="lazy">
-      <div class="ownership-content">
-        <p class="section-eyebrow">OWNERSHIP & MEMBERSHIP</p>
-        <h2 class="ownership-highlight">500만원으로 시작하는<br>올인원 펫 프렌들리 라이프</h2>
-        <p class="section-desc">
-          한정된 세대 구성으로 쾌적한 시설 이용과 품격 있는 커뮤니티를 보장합니다.<br>
-          가족의 라이프스타일에 맞추어 합리적인 소유 방식을 상담해 드립니다.
-        </p>
-
-        <div class="ownership-options">
-          <div class="option-item">
-            <div>
-              <h4>01. 한 세대 단독 분양</h4>
-              <p>전용 객실과 개별 테라스를 온전히 소유하는 프라이빗 단독 분양 방식</p>
+  <main id="top">
+    <!-- =================================================
+         2. 첫 화면 (Split Brand Intro / 참고 자료 .platform-responsive-section)
+         ================================================= -->
+    <section class="platform-responsive-section" id="intro">
+      <div class="platform-main-container">
+        <div class="platform-left">
+          <div class="platform-left-inner">
+            <div class="platform-title-row">
+              <span class="title-top-subtext">ALL-IN-ONE PET FRIENDLY LIFE</span>
+              <div class="title-flex-box">
+                <h1 class="platform-main-title">ANIMA POOL TERRACE</h1>
+                <div class="platform-title-divider"></div>
+              </div>
             </div>
-          </div>
-          <div class="option-item">
-            <div>
-              <h4>02. 지분등기 멤버십</h4>
-              <p>초기 자금 부담을 낮추고 법적 지분을 등기하여 안심하고 이용하는 공유형 소유 방식</p>
+
+            <div class="platform-left-img-wrap">
+              <img src="assets/KakaoTalk_20261107_191356868_03.png" alt="전 세대 오션뷰 테라스와 반려견">
+              <span class="img-mini-notice">※ 연출 이미지</span>
+              <div class="mobile-img-overlay-container">
+                <div class="overlay-top-content">
+                  <div class="overlay-brand-title">ANIMA POOL TERRACE</div>
+                  <div class="overlay-sub-desc">전 세대 오션뷰 · 올인원 펫 프렌들리 라이프</div>
+                  <div class="overlay-sub-desc">아니마 풀 테라스</div>
+                </div>
+                <div class="overlay-bottom-content">
+                  <span>scroll for journey</span>
+                  <span class="bounce-arrow">∨</span>
+                </div>
+              </div>
+            </div>
+
+            <h2 class="platform-sub-headline">탁 트인 바다 조망부터 전용 파크까지,
+반려견과 눈치 보지 않고 머무는 사계절 테라스</h2>
+
+            <div class="platform-desc-group">
+              <p class="platform-desc">반려견과 함께할 때마다 숙소와 식사, 산책 공간을 따로 찾아야 했던 번거로움을 덜어냈습니다.</p>
+              <p class="platform-desc">전 세대 오션뷰 테라스와 선큰형 펫 전용 수영장, 실내·외 펫파크, 동반 레스토랑과 케어 시설이 한 단지 안에 어우러져 반려가족에게 온전한 휴식을 선사합니다.</p>
+            </div>
+
+            <div class="hero-cta-row">
+              <a href="tel:1551-7889" class="hero-cta-btn primary">전화상담 1551-7889</a>
+              <a href="sms:010-3950-8060" class="hero-cta-btn secondary">문자상담 010-3950-8060</a>
             </div>
           </div>
         </div>
 
-        <a href="#reservation" class="btn-gold" style="align-self: flex-start;">나에게 맞는 분양 조건 상담하기 ↗</a>
-        <p class="caption-notice">※ 본 페이지는 분양 및 지분등기 멤버십 전문 안내 페이지이며, 일반 단기 숙박 예약은 진행하지 않습니다.</p>
+        <div class="platform-right">
+          <img src="assets/KakaoTalk_20261107_191356868_01.jpg" class="platform-right-img" alt="아니마 풀 테라스 잔디 펫파크와 라운지">
+          <div class="platform-right-overlay"></div>
+          <div class="platform-right-badge">WITH YOUR BELOVED PET</div>
+          <span class="platform-right-source">※ 이해를 돕기 위한 조감도 및 연출 이미지입니다.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================
+         3. 가로 슬라이더 섹션 1: TERRACE & POOL (오션뷰 테라스 및 펫 수영장)
+         ================================================= -->
+    <section class="uh-section" id="aqua-terrace" data-slider-section>
+      <div class="uh-slider-container">
+        <div class="uh-header-content">
+          <div class="uh-title-row">
+            <h2 class="uh-title">TERRACE &amp; AQUA ZONE</h2>
+            <div class="uh-title-divider"></div>
+          </div>
+          <h3 class="uh-head-copy">바다를 마주한 프라이빗 테라스와
+반려견의 움직임에 맞춘 전용 워터파크</h3>
+          <p class="uh-desc-1">광폭 창호로 바다와 숲이 펼쳐지는 테라스 객실부터 고급 석재 마감의 선큰 수영장, 분수 터널과 완만한 수변 데크가 마련된 플레이 풀까지 반려견과 보호자 모두의 동선을 배려해 설계했습니다.</p>
+        </div>
+
+        <div class="uh-viewport">
+          <button class="uh-nav-btn prev" disabled aria-label="이전 슬라이드">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"></path></svg>
+          </button>
+          <button class="uh-nav-btn next" aria-label="다음 슬라이드">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"></path></svg>
+          </button>
+
+          <div class="uh-track">
+            <div class="uh-slide">
+              <div class="uh-image-wrapper">
+                <img src="assets/KakaoTalk_20261107_191356868_07.jpg" alt="계단식 테라스 하우스와 선큰 풀 단지 전경">
+              </div>
+              <div class="uh-caption">
+                <span>TERRACE HOUSE &amp; SUNKEN POOL — 이국적인 단지 외관과 선큰형 수변 공간</span>
+                <span class="notice">※ 연출 이미지</span>
+              </div>
+            </div>
+
+            <div class="uh-slide">
+              <div class="uh-image-wrapper">
+                <img src="assets/KakaoTalk_20261107_191356868_05.jpg" alt="펫 전용 선큰 수영장">
+              </div>
+              <div class="uh-caption">
+                <span>PET EXCLUSIVE POOL — 보호자 휴게 스탠드와 연결된 펫 전용 수영장</span>
+                <span class="notice">※ 연출 이미지</span>
+              </div>
+            </div>
+
+            <div class="uh-slide">
+              <div class="uh-image-wrapper">
+                <img src="assets/KakaoTalk_20261107_191356868_06.jpg" alt="인공 폭포와 수중 놀이 기구가 있는 플레이 풀">
+              </div>
+              <div class="uh-caption">
+                <span>WATER PLAY ZONE — 인공 폭포와 분수 터널, 수변 우드 데크</span>
+                <span class="notice">※ 연출 이미지</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="uh-progress-wrapper">
+          <div class="uh-progress-bar">
+            <div class="uh-progress-fill" style="width: 33.33%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================
+         4. 가로 슬라이더 섹션 2: PET PARK & LOUNGE (야외 펫파크 및 다이닝)
+         ================================================= -->
+    <section class="uh-section alt-bg" id="pet-park" data-slider-section>
+      <div class="uh-slider-container">
+        <div class="uh-header-content">
+          <div class="uh-title-row">
+            <h2 class="uh-title">PET PARK &amp; COMMUNITY</h2>
+            <div class="uh-title-divider"></div>
+          </div>
+          <h3 class="uh-head-copy">마음껏 달리는 천연 잔디 언덕과
+함께 식사하며 머무는 테라스 라운지</h3>
+          <p class="uh-desc-1">통나무 터널과 우드 램프가 놓인 실내·외 펫파크에서 자유롭게 뛰놀고, 잔디 마당과 맞닿은 펫 동반 레스토랑·카페 및 루프탑 테라스에서 반려견과 나란히 여유로운 시간을 보낼 수 있습니다.</p>
+        </div>
+
+        <div class="uh-viewport">
+          <button class="uh-nav-btn prev" disabled aria-label="이전 슬라이드">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"></path></svg>
+          </button>
+          <button class="uh-nav-btn next" aria-label="다음 슬라이드">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"></path></svg>
+          </button>
+
+          <div class="uh-track">
+            <div class="uh-slide">
+              <div class="uh-image-wrapper">
+                <img src="assets/KakaoTalk_20261107_191356868.jpg" alt="야외 어질리티 펫파크">
+              </div>
+              <div class="uh-caption">
+                <span>AGILITY PET PARK — 잔디 언덕과 원형 터널이 조성된 야외 놀이터</span>
+                <span class="notice">※ 연출 이미지</span>
+              </div>
+            </div>
+
+            <div class="uh-slide">
+              <div class="uh-image-wrapper">
+                <img src="assets/KakaoTalk_20261107_191356868_02.jpg" alt="루프탑 테라스 다이닝 존">
+              </div>
+              <div class="uh-caption">
+                <span>ROOFTOP TERRACE — 반려가족이 함께 식사를 즐기는 야외 다이닝 데크</span>
+                <span class="notice">※ 연출 이미지</span>
+              </div>
+            </div>
+
+            <div class="uh-slide">
+              <div class="uh-image-wrapper">
+                <img src="assets/KakaoTalk_20261107_191356868_01.jpg" alt="펫 라운지 및 잔디 마당">
+              </div>
+              <div class="uh-caption">
+                <span>PET LOUNGE &amp; GARDEN — 1층 펫 동반 카페·레스토랑과 연결된 잔디 광장</span>
+                <span class="notice">※ 연출 이미지</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="uh-progress-wrapper">
+          <div class="uh-progress-bar">
+            <div class="uh-progress-fill" style="width: 33.33%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================
+         5. 브랜드 콘셉트(6가지 핵심 프리미엄) & 분양·지분등기 상담 안내
+         ================================================= -->
+    <section class="lifecare-supply-section" id="life-care">
+      <div class="lifecare-inner">
+        <div class="lifecare-header">
+          <span class="lifecare-eyebrow">ONE-STOP LIFE CARE</span>
+          <h2 class="lifecare-title">아니마 풀 테라스의 6가지 핵심 프리미엄</h2>
+          <p class="lifecare-sub">숙박과 다이닝부터 문화 클래스, 그루밍과 데이케어까지 한 곳에서 누리는 반려가족 맞춤형 라이프 케어 시스템입니다.</p>
+        </div>
+
+        <div class="premium-grid">
+          <div class="premium-card">
+            <span class="en-label">01. STUDIO</span>
+            <h3 class="ko-title">전문 활동 &amp; 스튜디오</h3>
+            <p class="ko-desc">반려견과의 특별한 순간을 기록하고 전문적인 활동을 지원하는 전용 공간입니다.</p>
+          </div>
+          <div class="premium-card">
+            <span class="en-label">02. HOTEL</span>
+            <h3 class="ko-title">프리미엄 숙박</h3>
+            <p class="ko-desc">전 세대 오션뷰 테라스와 반려견 친화 설계를 갖춘 안락한 체류 공간을 제공합니다.</p>
+          </div>
+          <div class="premium-card">
+            <span class="en-label">03. CULTURE</span>
+            <h3 class="ko-title">이벤트 &amp; 클래스</h3>
+            <p class="ko-desc">펫 유치원(데이케어), 사회화 프로그램 등 반려가족을 위한 문화 클래스를 운영합니다.</p>
+          </div>
+          <div class="premium-card">
+            <span class="en-label">04. CAFE &amp; DINING</span>
+            <h3 class="ko-title">펫 레스토랑 &amp; 카페</h3>
+            <p class="ko-desc">반려견과 동반 입장하여 편안하게 식사와 티타임을 즐길 수 있는 라운지입니다.</p>
+          </div>
+          <div class="premium-card">
+            <span class="en-label">05. GOODS &amp; CARE</span>
+            <h3 class="ko-title">라이프스타일 샵 &amp; 그루밍룸</h3>
+            <p class="ko-desc">전용 그루밍룸(스파·위생 관리)과 엄선된 반려용품 라이프스타일 샵을 함께 갖췄습니다.</p>
+          </div>
+          <div class="premium-card">
+            <span class="en-label">06. GARDEN</span>
+            <h3 class="ko-title">힐링 가든 &amp; 워터존</h3>
+            <p class="ko-desc">실내·외 펫파크, 전용 수영장, 야외 음수·세족 시설이 조화를 이루는 자연 친화 정원입니다.</p>
+          </div>
+        </div>
+
+        <div class="supply-info-box">
+          <div class="supply-text-col">
+            <span class="supply-badge">GRAND OPEN 안내</span>
+            <h3 class="supply-headline"><strong>500만 원</strong>으로 시작하는 올인원 펫 프렌들리 라이프</h3>
+            <p class="supply-desc">전 세대 오션뷰와 단지 내 모든 펫 특화 부대시설을 누리는 아니마 풀 테라스의 가입·분양 및 지분등기 관련 세부 조건은 전문 상담사를 통해 투명하고 상세하게 안내해 드립니다.</p>
+            <p class="supply-notice">※ 세부 공급 조건, 지분등기 방식, 계약 및 시설 운영 규정은 홍보관 방문상담 또는 대표번호(1551-7889)를 통해 확인하실 수 있습니다.</p>
+          </div>
+          <div class="supply-action-col">
+            <a href="#reservation" class="supply-btn gold">방문상담 예약하기</a>
+            <a href="tel:1551-7889" class="supply-btn outline">대표문의 1551-7889</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================
+         6. 마지막 예약 섹션 바로 앞: last.jpg 이미지 & 짧은 설명
+         ================================================= -->
+    <section class="last-archive-section" id="overview">
+      <div class="last-archive-inner">
+        <div class="last-img-frame">
+          <img src="assets/last.jpg" alt="아니마 풀 테라스 주요 부대시설 및 6가지 핵심 프리미엄 안내">
+        </div>
+        <div class="last-text-box">
+          <span class="last-eyebrow">AT A GLANCE</span>
+          <h2 class="last-title">머무는 모든 순간이 반려견을 향한 배려가 되는 곳</h2>
+          <p class="last-desc">아니마 풀 테라스는 펫 라운지·레스토랑·카페, 펫 전용 수영장, 실내·외 펫파크, 펫 유치원, 펫 그루밍룸까지 반려가족의 하루에 필요한 모든 시설을 한 단지에 집약했습니다.</p>
+          <div class="last-facility-tags">
+            <span class="last-tag">펫 동반 레스토랑 &amp; 카페</span>
+            <span class="last-tag">펫 전용 수영장</span>
+            <span class="last-tag">실내·외 펫파크</span>
+            <span class="last-tag">펫 유치원</span>
+            <span class="last-tag">펫 그루밍룸</span>
+          </div>
+          <p class="last-caption-note">※ 본 페이지에 사용된 조감도 및 시설 이미지는 소비자의 이해를 돕기 위한 연출 이미지이며, 실제 시공 및 운영 시 일부 변경될 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================
+         7. 마지막 섹션: 방문상담 예약 (디스코드 + 010-3950-8060 SMS 웹훅 연동)
+         ================================================= -->
+    <section class="reservation-split-section" id="reservation">
+      <div class="reservation-form-col">
+        <div class="form-header-box">
+          <span class="form-eyebrow">PRIVATE CONSULTATION</span>
+          <h2 class="form-main-title">방문상담 예약</h2>
+          <p class="form-sub-desc">예약을 남겨주시면 담당 상담사가 확인 후 상세 안내를 도와드립니다.</p>
+        </div>
+
+        <form id="visitReservationForm" novalidate>
+          <div class="form-field-group" style="margin-bottom: 16px;">
+            <label class="form-label" for="visitorName">성함 <span class="req">*</span></label>
+            <input type="text" id="visitorName" name="visitorName" class="form-input" placeholder="성함을 입력해 주세요" required>
+          </div>
+
+          <div class="form-field-group" style="margin-bottom: 16px;">
+            <label class="form-label" for="visitorPhone">연락처 <span class="req">*</span></label>
+            <input type="tel" id="visitorPhone" name="visitorPhone" class="form-input" placeholder="010-0000-0000" required>
+          </div>
+
+          <div class="form-field-group" style="margin-bottom: 16px;">
+            <label class="form-label" for="petName">반려견 이름 (또는 동반 여부) <span class="req">*</span></label>
+            <input type="text" id="petName" name="petName" class="form-input" placeholder="예: 보리 (소형견 1마리)" required>
+          </div>
+
+          <div class="form-field-group" style="margin-bottom: 16px;">
+            <label class="form-label" for="visitDate">방문 희망일 (선택)</label>
+            <input type="date" id="visitDate" name="visitDate" class="form-input">
+          </div>
+
+          <div class="form-field-group" style="margin-bottom: 18px;">
+            <label class="form-label" for="inquiryText">문의사항 (선택)</label>
+            <textarea id="inquiryText" name="inquiryText" class="form-textarea" placeholder="궁금하신 내용이나 희망 상담 시간대를 남겨주세요."></textarea>
+          </div>
+
+          <div class="privacy-box" style="margin-bottom: 20px;">
+            <label class="privacy-left" for="privacyAgree">
+              <input type="checkbox" id="privacyAgree" class="privacy-checkbox-input" required>
+              <span class="privacy-label-text">개인정보 수집 및 이용 동의 <strong style="color: var(--gold);">*</strong></span>
+            </label>
+            <button type="button" class="privacy-open-btn" id="openPrivacyModalBtn">약관 보기</button>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">RESERVATION · 방문상담 예약하기</button>
+        </form>
+
+        <div id="formStatusMessage" class="form-status-msg" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="reservation-visual-col">
+        <img src="assets/KakaoTalk_20261107_191356868_03.png" alt="아니마 풀 테라스 오션뷰">
+        <div class="reservation-visual-overlay"></div>
+        <div class="reservation-visual-content">
+          <div class="visual-top-tag">ANIMA POOL TERRACE BRIEFING</div>
+          <div class="visual-bottom-box">
+            <h3 class="visual-headline">아니마 풀 테라스가<br>궁금하신가요?</h3>
+            <p class="visual-subcopy">방문상담 예약을 남겨주시면 전문 상담사가 공급 조건과 주요 부대시설, 방문 일정을 상세히 안내해 드립니다.</p>
+            <div class="visual-contact-cards">
+              <a href="tel:1551-7889" class="visual-contact-item">
+                <span>대표 전화상담</span>
+                <strong>1551-7889</strong>
+              </a>
+              <a href="sms:010-3950-8060" class="visual-contact-item">
+                <span>문자 상담 문의</span>
+                <strong>010-3950-8060</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =================================================
+       8. 푸터
+       ================================================= -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">ANIMA POOL TERRACE</div>
+      <div class="footer-links">
+        <a href="#intro">브랜드 소개</a>
+        <a href="#aqua-terrace">테라스 &amp; 수영장</a>
+        <a href="#pet-park">펫파크 &amp; 라운지</a>
+        <a href="#life-care">6대 핵심 프리미엄</a>
+        <a href="#reservation">방문상담 예약</a>
+      </div>
+      <div class="footer-info">
+        <p><strong>사업명:</strong> 아니마 풀 테라스 (ANIMA POOL TERRACE) | <strong>대표 문의번호:</strong> <a href="tel:1551-7889">1551-7889</a> | <strong>문자상담:</strong> <a href="sms:010-3950-8060">010-3950-8060</a></p>
+        <p><strong>공식 홈페이지 표기:</strong> www.animapoolterrace.com | <strong>시행·시공 및 사업자 정보:</strong> [자료 내 미기재 · 확인 필요]</p>
+      </div>
+      <div class="footer-disclaimer">
+        <p>※ 본 웹페이지에 사용된 조감도, 투시도 및 연출 이미지는 소비자의 이해를 돕기 위한 것으로 실제 시공 시 차이가 있을 수 있습니다.</p>
+        <p>※ 세부 공급 조건, 지분등기 여부, 시설 운영 규정 등은 추후 인허가 및 사업 추진 과정에 따라 변경될 수 있으므로 반드시 공식 방문상담을 통해 확인하시기 바랍니다.</p>
+        <p style="margin-top: 8px;">COPYRIGHT &copy; ANIMA POOL TERRACE. ALL RIGHTS RESERVED.</p>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- 5. Life Section with last.jpg -->
-  <section class="wrap life-section" id="life" style="max-width: 100%; padding-left: 6%; padding-right: 6%;">
-    <div style="max-width: 1240px; margin: 0 auto;" class="life-grid">
-      <div>
-        <p class="section-eyebrow">6 CORE PREMIUMS</p>
-        <h2 class="section-title">오직 아니마에서만 누리는<br>6가지 원스톱 라이프케어</h2>
-        <p class="section-desc">
-          전문 촬영 스튜디오부터 미용, 교육, 식음, 휴식까지.<br>
-          반려가족의 모든 여정이 한곳에서 완결되는 프리미엄 복합 시설을 만납니다.
-        </p>
+  <!-- =================================================
+       9. 하단 고정 플로팅 상담 바
+       ================================================= -->
+  <div class="floating-bottom-bar" aria-label="빠른 상담 메뉴">
+    <a href="tel:1551-7889" class="float-btn call">전화 1551-7889</a>
+    <a href="sms:010-3950-8060" class="float-btn sms">문자 상담</a>
+    <a href="#reservation" class="float-btn res">방문상담 예약</a>
+  </div>
 
-        <ul class="life-facilities-list">
-          <li><strong>STUDIO</strong> 전문 활동 & 촬영 스튜디오</li>
-          <li><strong>HOTEL</strong> 럭셔리 프리미엄 숙박</li>
-          <li><strong>CULTURE</strong> 반려가족 이벤트 & 클래스</li>
-          <li><strong>CAFE</strong> 펫 동반 레스토랑 & 펫카페</li>
-          <li><strong>GOODS</strong> 프리미엄 라이프스타일 샵</li>
-          <li><strong>GARDEN</strong> 사계절 힐링 가든 & 펫파크</li>
-        </ul>
-
-        <p class="caption-notice">
-          ※ 펫유치원, 펫그루밍룸, 수영장 등의 세부 이용 규정 및 운영 일정은 방문상담 시 브로셔와 함께 안내해 드립니다.
-        </p>
+  <!-- =================================================
+       10. 페이지 진입 팝업 모달 (popup.jpg)
+       ================================================= -->
+  <div class="modal-backdrop" id="entryPopupModal" role="dialog" aria-modal="true" aria-label="그랜드 오픈 안내 팝업">
+    <div class="entry-popup-card">
+      <div class="entry-popup-img-wrap">
+        <img src="assets/popup.jpg" alt="500만원으로 시작하는 올인원 펫 프렌들리 라이프 아니마 풀 테라스 GRAND OPEN">
       </div>
-
-      <div class="brochure-preview">
-        <a href="assets/last.jpg" target="_blank" rel="noopener">
-          <img src="assets/last.jpg" alt="아니마 풀 테라스 주요 부대시설 및 6가지 프리미엄 상세 브로셔">
-        </a>
-        <div class="brochure-caption">▲ 클릭 시 부대시설 및 프리미엄 브로셔를 크게 보실 수 있습니다.</div>
+      <div class="entry-popup-cta-row">
+        <a href="tel:1551-7889" class="p-call">전화문의 1551-7889</a>
+        <a href="#reservation" class="p-res" id="popupReserveLink">방문상담 예약</a>
+      </div>
+      <div class="entry-popup-footer">
+        <button type="button" id="hidePopupTodayBtn">오늘 하루 보지 않기</button>
+        <button type="button" class="close-strong" id="closeEntryPopupBtn">닫기 ✕</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- 6. Reservation Section -->
-  <section class="reservation-section" id="reservation">
-    <div style="max-width: 1240px; margin: 0 auto;" class="res-grid">
-      <div class="res-info">
-        <p class="section-eyebrow">VISIT RESERVATION</p>
-        <h2 class="section-title">반려가족을 위한 첫걸음,<br>직접 확인해 보세요.</h2>
-        <p class="section-desc">
-          원하시는 일정을 남겨주시면 담당 버틀러가 배정되어<br>
-          상세 자료 안내 및 맞춤 방문상담 일정을 확정해 드립니다.
-        </p>
-
-        <div class="contact-box">
-          <a href="tel:15517889" class="contact-tel">1551-7889</a>
-          <p class="contact-sms">문자 상담 문의: <a href="sms:01039508060" style="text-decoration: underline;">010-3950-8060</a></p>
-        </div>
-        <p class="caption-notice" style="color: rgba(255, 255, 255, 0.6);">
-          ※ 접수 후 전문 상담원의 유선 안내를 통해 최종 일정이 확정됩니다.
-        </p>
+  <!-- =================================================
+       11. 개인정보 수집·이용 안내 모달 (아니마 풀 테라스 전용)
+       ================================================= -->
+  <div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
+    <div class="privacy-modal-card">
+      <div class="privacy-modal-header">
+        <h3 class="privacy-modal-title" id="privacyModalTitle">개인정보 수집 및 이용 안내</h3>
+        <button type="button" class="privacy-modal-close" id="closePrivacyModalBtn" aria-label="닫기">&times;</button>
       </div>
+      <div class="privacy-modal-body">
+        <p><strong>아니마 풀 테라스(ANIMA POOL TERRACE)</strong>는 방문상담 예약 및 분양·가입 안내 서비스 제공을 위해 아래와 같이 최소한의 개인정보를 수집·이용합니다.</p>
 
-      <!-- Booking Form -->
-      <form class="booking-form" id="consultation-form">
-        <div class="form-group-row">
-          <div class="form-field">
-            <label for="form-name">성함 *</label>
-            <input type="text" id="form-name" name="name" required placeholder="고객님의 성함을 입력해 주세요" maxlength="30">
-          </div>
-          <div class="form-field">
-            <label for="form-phone">연락처 *</label>
-            <input type="tel" id="form-phone" name="phone" required placeholder="010-0000-0000" maxlength="20">
-          </div>
-        </div>
+        <h4>1. 개인정보의 수집 및 이용 목적</h4>
+        <p>- 방문상담 예약 접수 및 일정 안내<br>- 단지 소개, 공급 조건 및 관련 문의사항 응대<br>- 상담 예약 확인 문자(SMS) 및 안내 연락 발송</p>
 
-        <div class="form-group-row">
-          <div class="form-field">
-            <label for="form-date">방문 희망일 *</label>
-            <input type="date" id="form-date" name="date" required>
-          </div>
-          <div class="form-field">
-            <label for="form-time">희망 시간대 *</label>
-            <select id="form-time" name="time" required>
-              <option value="">시간대를 선택해 주세요</option>
-              <option value="오전 (10:00 ~ 12:00)">오전 (10:00 ~ 12:00)</option>
-              <option value="오후 (12:00 ~ 15:00)">오후 (12:00 ~ 15:00)</option>
-              <option value="오후 (15:00 ~ 18:00)">오후 (15:00 ~ 18:00)</option>
-              <option value="시간 협의">시간 유선 협의</option>
-            </select>
-          </div>
-        </div>
+        <h4>2. 수집하는 개인정보 항목</h4>
+        <p>- <strong>필수항목:</strong> 성함, 연락처(휴대전화번호), 반려견 이름(또는 동반 여부)<br>- <strong>선택항목:</strong> 방문 희망일, 문의사항<br>- <strong>자동수집항목:</strong> 접속 일시, 접속 환경(기기 및 브라우저 정보), 유입 경로</p>
 
-        <div class="form-field">
-          <label for="form-interest">관심 소유 방식</label>
-          <select id="form-interest" name="interest">
-            <option value="상담 후 결정">상담 후 결정</option>
-            <option value="한 세대 단독 분양">한 세대 단독 분양</option>
-            <option value="지분등기 멤버십">지분등기 멤버십</option>
-          </select>
-        </div>
+        <h4>3. 개인정보의 보유 및 이용 기간</h4>
+        <p>- 수집된 개인정보는 <strong>상담 및 안내 목적 달성 후 지체 없이 파기</strong>합니다. 단, 고객의 별도 요청이 있거나 관련 법령에 따라 보존할 필요가 있는 경우 법정 보유기간 동안 안전하게 보관합니다. (최대 1년 이내 파기)</p>
 
-        <div class="form-field">
-          <label for="form-message">문의사항 (선택)</label>
-          <textarea id="form-message" name="message" rows="3" placeholder="견종, 마리 수 또는 궁금하신 사항을 자유롭게 남겨주세요."></textarea>
-        </div>
-
-        <!-- 개인정보 수집 및 이용 안내 -->
-        <details class="privacy-card">
-          <summary>개인정보 수집 및 이용 동의 안내 (상세보기)</summary>
-          <div class="privacy-card-body">
-            1. <strong>수집 주체:</strong> 영종 아니마 풀 테라스 분양상담본부<br>
-            2. <strong>수집 항목:</strong> [필수] 성명, 휴대전화번호, 방문 희망일시 / [선택] 관심 상품, 문의사항<br>
-            3. <strong>수집 및 이용 목적:</strong> 방문상담 예약 확인, 본인 확인, 일정 조율 및 분양 안내 자료 발송<br>
-            4. <strong>보유 및 이용 기간:</strong> 상담 완료 및 고객 관리 종료 시까지 (접수일로부터 1년 후 안전하게 파기하며, 고객의 요청 시 즉시 삭제)<br>
-            5. <strong>동의 거부 권리:</strong> 고객님은 개인정보 수집·이용에 동의하지 않을 권리가 있으나, 필수 항목 미동의 시 방문상담 접수가 제한될 수 있습니다.
-          </div>
-        </details>
-
-        <label class="checkbox-label">
-          <input type="checkbox" name="privacy_consent" id="form-consent" required>
-          <span>개인정보 수집 및 이용에 동의합니다. (필수)</span>
-        </label>
-
-        <button type="submit" class="btn-submit" id="submit-btn">방문상담 예약 신청 ↗</button>
-        <p id="form-status" role="status" aria-live="polite"></p>
-      </form>
+        <h4>4. 동의 거부 권리 및 불이익 안내</h4>
+        <p>- 귀하는 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있습니다. 다만 필수항목 수집·이용에 동의하지 않으실 경우 방문상담 예약 및 상세 안내 서비스가 제한될 수 있습니다.</p>
+      </div>
+      <div class="privacy-modal-footer">
+        <button type="button" class="privacy-modal-confirm-btn" id="confirmPrivacyModalBtn">확인 및 동의</button>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Sticky Quick Bar -->
-  <aside class="quick-bar" aria-label="빠른 문의">
-    <a href="tel:15517889" class="quick-btn call">전화상담</a>
-    <a href="sms:01039508060" class="quick-btn sms">문자상담</a>
-    <a href="#reservation" class="quick-btn reserve">방문예약</a>
-  </aside>
-
-  <!-- Popup Modal (진입 시 노출) -->
-  <dialog id="popup-modal" aria-labelledby="popup-title">
-    <div class="popup-header">
-      <span id="popup-title">ANIMA POOL TERRACE</span>
-      <button class="popup-close-btn" id="popup-close" aria-label="팝업 닫기">✕</button>
-    </div>
-    <div class="popup-body">
-      <img src="assets/popup.jpg" alt="500만원으로 시작하는 올인원 펫 프렌들리 라이프 아니마 풀 테라스">
-    </div>
-    <div class="popup-footer">
-      <a href="#reservation" class="popup-cta-btn" id="popup-cta">방문상담 예약하기 ↗</a>
-    </div>
-  </dialog>
-
-  <!-- Script: Cloudflare Worker 연동 및 팝업/폼 제어 -->
+  <!-- =================================================
+       12. 스크립트: 웹훅(방문/예약), 팝업, 슬라이더, 모달 제어
+       ================================================= -->
   <script>
-    'use strict';
+    const WEBHOOK_ENDPOINT = "https://anima-1-webhook.mohanni1006.workers.dev/";
+    const ADMIN_SMS_NUMBER = "010-3950-8060";
 
-    const CONFIG = {
-      workerEndpoint: 'https://anima-1-webhook.mohanni1006.workers.dev/',
-      managerPhone: '010-3950-8060',
-      representativePhone: '1551-7889'
-    };
+    /* -------------------------------------------------
+       1) 페이지 접속 시 팝업 표시 & 디스코드 방문 알림 전송 (SMS 미발송)
+       ------------------------------------------------- */
+    async function notifyPageVisitToDiscord() {
+      const nowKst = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
+      const referrer = document.referrer || "직접 접속 (Direct)";
+      const pageUrl = window.location.href;
+      const deviceType = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? "모바일" : "데스크톱";
 
-    // 1. 매장 QR 코드 파라미터 감지 및 세션 보존 (?store=매장명)
-    const urlParams = new URLSearchParams(window.location.search);
-    const storeFromQuery = urlParams.get('store') || urlParams.get('utm_source');
-    if (storeFromQuery) {
-      sessionStorage.setItem('anima-source-store', storeFromQuery);
-    }
-    const currentStore = sessionStorage.getItem('anima-source-store') || null;
+      const discordPayload = {
+        username: "ANIMA POOL TERRACE 방문알림",
+        content: "🐾 **[아니마 풀 테라스]** 홈페이지에 새로운 방문자가 접속했습니다.",
+        embeds: [
+          {
+            title: "홈페이지 방문 알림",
+            color: 0xC8A96A,
+            fields: [
+              { name: "접속 시각 (KST)", value: nowKst, inline: true },
+              { name: "접속 기기", value: `${deviceType} (${window.innerWidth}×${window.innerHeight})`, inline: true },
+              { name: "유입 경로", value: referrer, inline: false },
+              { name: "접속 URL", value: pageUrl, inline: false }
+            ]
+          }
+        ]
+      };
 
-    // 2. 공통 Worker 전송 유틸리티 함수
-    async function sendToWorker(discordPayload, smsPayload = null) {
-      const response = await fetch(CONFIG.workerEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ discordPayload, smsPayload }),
-        signal: AbortSignal.timeout(15000)
-      });
-
-      const result = await response.json();
-      if (!response.ok || result.success !== true) {
-        throw new Error(result.error || 'Worker 통신 실패');
-      }
-      return result;
-    }
-
-    // 3. 홈페이지 접속 시 팝업 노출 및 디스코드 방문 알림 (SMS는 보내지 않음)
-    const popupModal = document.getElementById('popup-modal');
-    const popupCloseBtn = document.getElementById('popup-close');
-    const popupCtaBtn = document.getElementById('popup-cta');
-
-    function closePopup() {
-      if (popupModal && popupModal.open) {
-        popupModal.close();
-      }
-    }
-
-    if (popupModal) {
-      popupCloseBtn?.addEventListener('click', closePopup);
-      popupCtaBtn?.addEventListener('click', closePopup);
-
-      // 백드롭(배경 어두운 영역) 클릭 시 닫기
-      popupModal.addEventListener('click', (e) => {
-        const rect = popupModal.getBoundingClientRect();
-        const isInDialog = (
-          rect.top <= e.clientY &&
-          e.clientY <= rect.top + rect.height &&
-          rect.left <= e.clientX &&
-          e.clientX <= rect.left + rect.width
-        );
-        if (!isInDialog) closePopup();
-      });
-
-      // 진입 즉시 팝업 노출
       try {
-        popupModal.showModal();
-      } catch (err) {
-        console.warn('Modal display failed:', err);
-      }
-    }
-
-    // 접속 디스코드 알림 발송 (세션당 1회)
-    try {
-      if (!sessionStorage.getItem('anima-visited-flag')) {
-        sessionStorage.setItem('anima-visited-flag', 'true');
-
-        const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-        const referrer = document.referrer || '직접 접속 (URL / 북마크)';
-        const deviceType = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? '모바일 (Mobile)' : 'PC / 태블릿';
-        const sourceLabel = currentStore ? `🚩 매장 QR 접속 [${currentStore}]` : '온라인 일반 접속';
-
-        const visitDiscordPayload = {
-          username: '아니마 풀테라스 방문봇',
-          embeds: [
-            {
-              title: currentStore ? `🐾 [QR 접속] ${currentStore}에서 고객이 방문했습니다` : '🐾 [방문 감지] 신규 방문자가 접속했습니다',
-              color: 0x143528,
-              fields: [
-                { name: '접속 출처', value: sourceLabel, inline: true },
-                { name: '접속 환경', value: deviceType, inline: true },
-                { name: '접속 시간', value: now, inline: true },
-                { name: '유입 경로', value: referrer, inline: false },
-                { name: '페이지 URL', value: location.href, inline: false }
-              ],
-              footer: { text: 'ANIMA POOL TERRACE · 실시간 트래픽' }
-            }
-          ]
-        };
-
-        // 요청 명세: 방문 시에는 SMS를 보내지 않음
-        sendToWorker(visitDiscordPayload, null).catch((err) => {
-          console.warn('방문 알림 전송 에러:', err);
+        await fetch(WEBHOOK_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            discordPayload: discordPayload
+            // smsPayload는 포함하지 않아 SMS가 발송되지 않도록 처리
+          })
         });
+      } catch (err) {
+        console.warn("방문 알림 웹훅 전송 중 오류:", err);
       }
-    } catch (e) {}
-
-    // 4. 방문 희망일 날짜 제한 (오늘 이전 선택 방지)
-    const dateInput = document.getElementById('form-date');
-    if (dateInput) {
-      const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Seoul' }).format(new Date());
-      dateInput.min = today;
     }
 
-    // 5. 방문상담 예약 폼 제출 (디스코드 알림 + 010-3950-8060 문자 전송)
-    const bookingForm = document.getElementById('consultation-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const formStatus = document.getElementById('form-status');
+    function initEntryPopup() {
+      const popupModal = document.getElementById("entryPopupModal");
+      const closeBtn = document.getElementById("closeEntryPopupBtn");
+      const hideTodayBtn = document.getElementById("hidePopupTodayBtn");
+      const reserveLink = document.getElementById("popupReserveLink");
 
-    if (bookingForm) {
-      bookingForm.addEventListener('submit', async (e) => {
+      const hideUntil = localStorage.getItem("anima_hide_popup_until");
+      const now = Date.now();
+
+      if (!hideUntil || now > Number(hideUntil)) {
+        popupModal.classList.add("is-visible");
+      }
+
+      const closePopup = () => popupModal.classList.remove("is-visible");
+
+      closeBtn.addEventListener("click", closePopup);
+      reserveLink.addEventListener("click", closePopup);
+      popupModal.addEventListener("click", (e) => {
+        if (e.target === popupModal) closePopup();
+      });
+
+      hideTodayBtn.addEventListener("click", () => {
+        const tomorrow = Date.now() + 24 * 60 * 60 * 1000;
+        localStorage.setItem("anima_hide_popup_until", String(tomorrow));
+        closePopup();
+      });
+    }
+
+    /* -------------------------------------------------
+       2) 모바일 메뉴 및 개인정보 약관 모달 제어
+       ------------------------------------------------- */
+    function initModalsAndMenu() {
+      const mobileBtn = document.getElementById("mobileMenuBtn");
+      const mobileOverlay = document.getElementById("mobileMenuOverlay");
+
+      mobileBtn.addEventListener("click", () => {
+        mobileBtn.classList.toggle("open");
+        mobileOverlay.classList.toggle("is-open");
+      });
+
+      mobileOverlay.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileBtn.classList.remove("open");
+          mobileOverlay.classList.remove("is-open");
+        });
+      });
+
+      // 개인정보 약관 모달
+      const privacyModal = document.getElementById("privacyModal");
+      const openPrivacyBtn = document.getElementById("openPrivacyModalBtn");
+      const closePrivacyBtn = document.getElementById("closePrivacyModalBtn");
+      const confirmPrivacyBtn = document.getElementById("confirmPrivacyModalBtn");
+      const privacyCheckbox = document.getElementById("privacyAgree");
+
+      openPrivacyBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        privacyModal.classList.add("is-visible");
+      });
 
-        if (!bookingForm.reportValidity()) return;
+      closePrivacyBtn.addEventListener("click", () => {
+        privacyModal.classList.remove("is-visible");
+      });
 
-        const formData = new FormData(bookingForm);
-        const name = (formData.get('name') || '').trim();
-        const rawPhone = (formData.get('phone') || '').replace(/\D/g, '');
-        const date = formData.get('date');
-        const time = formData.get('time') || '시간 협의';
-        const interest = formData.get('interest') || '상담 후 결정';
-        const message = (formData.get('message') || '').trim();
+      confirmPrivacyBtn.addEventListener("click", () => {
+        privacyCheckbox.checked = true;
+        privacyModal.classList.remove("is-visible");
+      });
 
-        if (!name || rawPhone.length < 9) {
-          formStatus.textContent = '성함과 올바른 전화번호를 입력해 주세요.';
-          formStatus.style.color = '#ffb3b3';
+      privacyModal.addEventListener("click", (e) => {
+        if (e.target === privacyModal) privacyModal.classList.remove("is-visible");
+      });
+    }
+
+    /* -------------------------------------------------
+       3) 가로 이미지 슬라이더 (데스크톱 버튼 + 모바일 스와이프)
+       ------------------------------------------------- */
+    function initSliders() {
+      const sections = document.querySelectorAll("[data-slider-section]");
+
+      sections.forEach((section) => {
+        const track = section.querySelector(".uh-track");
+        const slides = section.querySelectorAll(".uh-slide");
+        const prevBtn = section.querySelector(".uh-nav-btn.prev");
+        const nextBtn = section.querySelector(".uh-nav-btn.next");
+        const progressFill = section.querySelector(".uh-progress-fill");
+
+        let currentIndex = 0;
+        const total = slides.length;
+
+        function updateSlider() {
+          if (slides.length === 0) return;
+          const slideWidth = slides[0].getBoundingClientRect().width;
+          const style = window.getComputedStyle(slides[0]);
+          const marginRight = parseFloat(style.marginRight) || 0;
+          const offset = (slideWidth + marginRight) * currentIndex;
+
+          track.style.transform = `translateX(-${offset}px)`;
+
+          if (prevBtn) prevBtn.disabled = currentIndex === 0;
+          if (nextBtn) nextBtn.disabled = currentIndex >= total - 1;
+          if (progressFill) {
+            progressFill.style.width = `${((currentIndex + 1) / total) * 100}%`;
+          }
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) {
+              currentIndex--;
+              updateSlider();
+            }
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", () => {
+            if (currentIndex < total - 1) {
+              currentIndex++;
+              updateSlider();
+            }
+          });
+        }
+
+        // 모바일 터치 스와이프 지원
+        let startX = 0;
+        let isDragging = false;
+
+        track.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+          isDragging = true;
+        }, { passive: true });
+
+        track.addEventListener("touchend", (e) => {
+          if (!isDragging) return;
+          const endX = e.changedTouches[0].clientX;
+          const diff = startX - endX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0 && currentIndex < total - 1) {
+              currentIndex++;
+            } else if (diff < 0 && currentIndex > 0) {
+              currentIndex--;
+            }
+            updateSlider();
+          }
+          isDragging = false;
+        }, { passive: true });
+
+        window.addEventListener("resize", updateSlider);
+        updateSlider();
+      });
+    }
+
+    /* -------------------------------------------------
+       4) 방문상담 예약 폼 검증 및 디스코드 + SMS(010-3950-8060) 전송
+       ------------------------------------------------- */
+    function initReservationForm() {
+      const form = document.getElementById("visitReservationForm");
+      const phoneInput = document.getElementById("visitorPhone");
+      const statusBox = document.getElementById("formStatusMessage");
+      const submitBtn = document.getElementById("submitBtn");
+
+      // 연락처 자동 하이픈 포맷팅
+      phoneInput.addEventListener("input", (e) => {
+        const digits = e.target.value.replace(/\D/g, "").slice(0, 11);
+        if (digits.length < 4) {
+          e.target.value = digits;
+        } else if (digits.length < 8) {
+          e.target.value = `${digits.slice(0, 3)}-${digits.slice(3)}`;
+        } else {
+          e.target.value = `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
+        }
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        statusBox.className = "form-status-msg";
+        statusBox.textContent = "";
+
+        const name = document.getElementById("visitorName").value.trim();
+        const phone = document.getElementById("visitorPhone").value.trim();
+        const petName = document.getElementById("petName").value.trim();
+        const visitDate = document.getElementById("visitDate").value.trim() || "미지정 (상담 후 결정)";
+        const inquiry = document.getElementById("inquiryText").value.trim() || "없음";
+        const agreed = document.getElementById("privacyAgree").checked;
+
+        if (!name) {
+          statusBox.className = "form-status-msg error";
+          statusBox.textContent = "성함을 입력해 주세요.";
           return;
         }
 
-        const formattedPhone = rawPhone.replace(/^(\d{3})(\d{3,4})(\d{4})$/, '$1-$2-$3');
-        const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-        const storeLabel = currentStore ? `매장 QR (${currentStore})` : '일반 웹 유입';
+        const phoneClean = phone.replace(/\D/g, "");
+        if (phoneClean.length < 9 || phoneClean.length > 11) {
+          statusBox.className = "form-status-msg error";
+          statusBox.textContent = "올바른 연락처(휴대전화번호)를 입력해 주세요.";
+          return;
+        }
 
-        // 1) 디스코드 예약 알림 페이로드
-        const reservationDiscordPayload = {
-          username: '아니마 풀테라스 예약봇',
+        if (!petName) {
+          statusBox.className = "form-status-msg error";
+          statusBox.textContent = "반려견 이름 또는 동반 여부를 입력해 주세요.";
+          return;
+        }
+
+        if (!agreed) {
+          statusBox.className = "form-status-msg error";
+          statusBox.textContent = "개인정보 수집 및 이용에 동의해 주세요.";
+          return;
+        }
+
+        const submittedAt = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
+        const smsText = `[아니마 풀 테라스 방문상담 예약]\n성함: ${name}\n연락처: ${phone}\n반려견: ${petName}\n희망일: ${visitDate}\n문의: ${inquiry}\n접수시각: ${submittedAt}`;
+
+        const discordPayload = {
+          username: "ANIMA 예약알림봇",
+          content: `🔔 **[아니마 풀 테라스]** 새로운 방문상담 예약이 접수되었습니다! (${name}님 / ${phone})`,
           embeds: [
             {
-              title: '🎉 [방문상담 신청] 새로운 예약이 접수되었습니다!',
-              color: 0xc3a675,
+              title: "방문상담 예약 신청 내역",
+              color: 0x122820,
               fields: [
-                { name: '신청 고객명', value: name, inline: true },
-                { name: '연락처', value: formattedPhone, inline: true },
-                { name: '유입 경로', value: storeLabel, inline: true },
-                { name: '방문 희망일', value: String(date), inline: true },
-                { name: '희망 시간대', value: String(time), inline: true },
-                { name: '관심 상품', value: String(interest), inline: true },
-                { name: '접수 일시', value: now, inline: false },
-                { name: '문의 사항', value: message ? `\`\`\`\n${message}\n\`\`\`` : '없음', inline: false }
-              ],
-              footer: { text: 'ANIMA POOL TERRACE · 상담 관리' }
+                { name: "성함", value: name, inline: true },
+                { name: "연락처", value: phone, inline: true },
+                { name: "반려견 정보", value: petName, inline: true },
+                { name: "방문 희망일", value: visitDate, inline: true },
+                { name: "SMS 발송 대상", value: ADMIN_SMS_NUMBER, inline: true },
+                { name: "접수 시각 (KST)", value: submittedAt, inline: true },
+                { name: "문의사항", value: inquiry, inline: false }
+              ]
             }
           ]
         };
 
-        // 2) 문자 발송 페이로드 (지정된 번호 010-3950-8060으로 내용 전송)
-        const smsMessageBody = `[아니마 풀테라스 예약접수]\n- 고객: ${name}\n- 연락처: ${formattedPhone}\n- 희망일: ${date} (${time})\n- 상품: ${interest}\n- 유입: ${storeLabel}\n- 문의: ${message || '없음'}`;
-        const reservationSmsPayload = {
-          to: CONFIG.managerPhone,
-          receiver: CONFIG.managerPhone,
-          phone: CONFIG.managerPhone,
-          customer_name: name,
-          customer_phone: formattedPhone,
-          message: smsMessageBody,
-          msg: smsMessageBody,
-          text: smsMessageBody,
-          store: currentStore || '웹'
+        // Cloudflare Worker의 env.SMS_WEBHOOK_URL 연동 규격 대응
+        const smsPayload = {
+          to: ADMIN_SMS_NUMBER,
+          receiver: ADMIN_SMS_NUMBER.replace(/-/g, ""),
+          phone: ADMIN_SMS_NUMBER,
+          recipient: ADMIN_SMS_NUMBER,
+          subject: "[아니마 풀 테라스 방문예약]",
+          text: smsText,
+          message: smsText,
+          content: smsText,
+          data: {
+            targetPhone: ADMIN_SMS_NUMBER,
+            visitorName: name,
+            visitorPhone: phone,
+            petName: petName,
+            visitDate: visitDate,
+            inquiry: inquiry,
+            submittedAt: submittedAt
+          }
         };
 
         submitBtn.disabled = true;
-        formStatus.textContent = '상담 신청서를 안전하게 전송하고 있습니다…';
-        formStatus.style.color = 'var(--gold)';
+        submitBtn.textContent = "예약 전송 중...";
 
         try {
-          await sendToWorker(reservationDiscordPayload, reservationSmsPayload);
-          formStatus.textContent = '방문상담 신청이 완료되었습니다. 담당자가 확인 후 신속히 연락드리겠습니다.';
-          formStatus.style.color = '#8be3a1';
-          bookingForm.reset();
-        } catch (error) {
-          console.error(error);
-          formStatus.textContent = `전송 중 오류가 발생했습니다. 대표번호(${CONFIG.representativePhone}) 또는 문자(${CONFIG.managerPhone})로 문의해 주세요.`;
-          formStatus.style.color = '#ff9999';
+          const response = await fetch(WEBHOOK_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              discordPayload: discordPayload,
+              smsPayload: smsPayload
+            })
+          });
+
+          const result = await response.json().catch(() => ({}));
+
+          if (response.ok && result.success) {
+            statusBox.className = "form-status-msg success";
+            statusBox.innerHTML = `<strong>방문상담 예약 요청이 접수되었습니다.</strong><br>디스코드 알림 및 담당자(${ADMIN_SMS_NUMBER}) 웹훅 전송 요청이 완료되었습니다. 빠른 상담을 원하시면 <a href="sms:${ADMIN_SMS_NUMBER}?body=${encodeURIComponent(smsText)}" style="text-decoration:underline;color:#fff;font-weight:600;">여기를 눌러 문자 바로보내기</a> 또는 대표번호(1551-7889)로 연락해 주세요.<br><span style="font-size:11.5px;opacity:0.85;">※ Cloudflare Worker 환경변수(DISCORD_WEBHOOK_URL, SMS_WEBHOOK_URL)가 설정되어 있어야 실제 메시지가 최종 수신됩니다.</span>`;
+            form.reset();
+          } else {
+            throw new Error(result.error || `HTTP ${response.status}`);
+          }
+        } catch (err) {
+          statusBox.className = "form-status-msg error";
+          statusBox.innerHTML = `<strong>자동 알림 서버 연동 확인이 필요합니다.</strong> (${err.message})<br>아래 버튼을 누르시면 담당자(${ADMIN_SMS_NUMBER})에게 예약 문자를 바로 보내실 수 있습니다.<br><a href="sms:${ADMIN_SMS_NUMBER}?body=${encodeURIComponent(smsText)}" style="display:inline-block;margin-top:8px;padding:7px 12px;background:#c8a96a;color:#0b1914;border-radius:4px;font-weight:700;">010-3950-8060으로 예약 문자 바로 보내기</a>`;
         } finally {
           submitBtn.disabled = false;
+          submitBtn.textContent = "RESERVATION · 방문상담 예약하기";
         }
       });
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initEntryPopup();
+      notifyPageVisitToDiscord();
+      initModalsAndMenu();
+      initSliders();
+      initReservationForm();
+    });
   </script>
 </body>
 </html>
